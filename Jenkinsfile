@@ -69,7 +69,7 @@ sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallat
       }
       success {
         echo 'This will run only if successful'
-        junit 'build/test-results/test/*.xml' → RUTA DE TUS ARCHIVOS .XML
+        junit 'build/test-results/test/*.xml'
       }
       failure {
         echo 'This will run only if failed'
