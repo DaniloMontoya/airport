@@ -27,6 +27,7 @@ pipeline {
         url:'https://github.com/luismiguel010/airport.git'
         ]]
         ])
+        sh './gradlew clean compileJava'
       }
     }
 
@@ -35,7 +36,7 @@ pipeline {
     stage('Compile & Unit Tests') {
       steps{
         echo "------------>Unit Tests<------------"
-        sh 'gradle --b ./build.gradle test'
+        sh './gradlew test'
       }
     }
 
