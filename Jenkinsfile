@@ -10,6 +10,12 @@ pipeline {
  	disableConcurrentBuilds()
   }
 
+  //Una sección que define las herramientas “preinstaladas” en Jenkins
+  tools {
+    jdk 'JDK11_Centos' //Preinstalada en la Configuración del Master
+    gradle 'Gradle4.5_Centos' //Preinstalada en la Configuración del Master
+  }
+
   //Aquí comienzan los “items” del Pipeline
   stages{
     stage('Checkout') {
@@ -27,7 +33,7 @@ pipeline {
         url:'https://github.com/luismiguel010/airport.git'
         ]]
         ])
-        sh './gradlew clean compileJava'
+        sh 'gradle --b ./airport/build.gradle clean compileJava'
       }
     }
 
@@ -36,7 +42,7 @@ pipeline {
     stage('Compile & Unit Tests') {
       steps{
         echo "------------>Unit Tests<------------"
-        sh './gradlew test'
+        sh 'gradle --b ./build.gradle test'
       }
     }
 
