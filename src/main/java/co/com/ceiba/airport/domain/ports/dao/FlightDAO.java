@@ -8,4 +8,5 @@ public interface FlightDAO {
 
     List<FlightDTO> getAllFlight();
     List<FlightDTO> getFlightsByDay(long time);
+    FlightDTO getFlightById(Long id);
 }

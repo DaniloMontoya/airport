@@ -17,7 +17,12 @@ public class Flight {
     private float cost;
     private boolean isReprogrammed;
 
-    public Flight(long time){
+    public Flight(Long id, long time, ArrivalDTO arrivalDTO, float cost, boolean isReprogrammed){
         mandatoryValidate(time, IT_IS_NECESSARY_TO_ENTER_THE_TIME);
+        this.id = id;
+        this.time = time;
+        this.arrivalDTO = arrivalDTO;
+        this.cost = cost;
+        this.isReprogrammed = isReprogrammed;
     }
 }
