@@ -1,6 +1,5 @@
 package co.com.ceiba.airport.infrastructure.persistence.entities;
 
-import co.com.ceiba.airport.domain.models.dto.ArrivalDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,16 +18,12 @@ public class FlightEntity {
     private long time;
 
     @Column(nullable = false)
+    private String arrival;
+
+    @Column(nullable = false)
     private float cost;
 
     @Column(nullable = false)
     private boolean isReprogrammed;
-
-    @OneToOne
-    @JoinColumn(name="ID_ARRIVAL", referencedColumnName = "id")
-    private ArrivalEntity arrivalEntity;
-
-
-
 
 }

@@ -1,6 +1,5 @@
 package co.com.ceiba.airport.domain.unit;
 
-import co.com.ceiba.airport.domain.models.entities.Arrival;
 import co.com.ceiba.airport.testdatabuilder.ArrivalTestDataBuilder;
 import org.junit.Assert;
 import org.junit.Test;

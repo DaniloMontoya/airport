@@ -15,7 +15,7 @@ public class FlightBuilder {
             flight = new Flight(
                     flightEntity.getId(),
                     flightEntity.getTime(),
-                    ArrivalBuilder.convertToDomain(flightEntity.getArrivalEntity()),
+                    flightEntity.getArrival(),
                     flightEntity.getCost(),
                     flightEntity.isReprogrammed());
         }
@@ -28,7 +28,7 @@ public class FlightBuilder {
         FlightEntity flightEntity = new FlightEntity();
         flightEntity.setId(flight.getId());
         flightEntity.setTime(flight.getTime());
-        flightEntity.setArrivalEntity(ArrivalBuilder.convertToEntity(flight.getArrival()));
+        flightEntity.setArrival(flight.getArrival());
         flightEntity.setCost(flight.getCost());
         flightEntity.setReprogrammed(flight.isReprogrammed());
         return flightEntity;

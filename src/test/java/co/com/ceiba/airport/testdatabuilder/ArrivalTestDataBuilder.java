@@ -1,7 +1,5 @@
 package co.com.ceiba.airport.testdatabuilder;
 
-import co.com.ceiba.airport.domain.models.entities.Arrival;
-
 public class ArrivalTestDataBuilder {
 
     private static final String NAME = "LONDON";

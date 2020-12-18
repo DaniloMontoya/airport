@@ -1,9 +1,7 @@
 package co.com.ceiba.airport.infrastructure.configuration.system;
 
-import co.com.ceiba.airport.domain.ports.repositories.ArrivalRepository;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import co.com.ceiba.airport.infrastructure.configuration.connection.ConectionJPA;
-import co.com.ceiba.airport.infrastructure.persistence.repositories.ArrivalPersistanceRepository;
 import co.com.ceiba.airport.infrastructure.persistence.repositories.FlightPersitenceRepository;
 
 import javax.persistence.EntityManager;

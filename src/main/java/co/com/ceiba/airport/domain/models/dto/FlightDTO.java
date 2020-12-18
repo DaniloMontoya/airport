@@ -8,7 +8,7 @@ import lombok.Getter;
 public class FlightDTO {
     private Long id;
     private long time;
-    private ArrivalDTO arrivalDTO;
+    private String arrival;
     private float cost;
     private boolean isReprogrammed;
 }

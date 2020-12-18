@@ -1,7 +1,7 @@
 package co.com.ceiba.airport.domain.models.entities;
 
 import static co.com.ceiba.airport.domain.ArgumentsValidater.mandatoryValidate;
-import co.com.ceiba.airport.domain.models.dto.ArrivalDTO;
+
 import lombok.Getter;
 
 
@@ -13,11 +13,11 @@ public class Flight {
 
     private Long id;
     private long time;
-    private Arrival arrival;
+    private String arrival;
     private float cost;
     private boolean isReprogrammed;
 
-    public Flight(Long id, long time, Arrival arrival, float cost, boolean isReprogrammed){
+    public Flight(Long id, long time, String arrival, float cost, boolean isReprogrammed){
         mandatoryValidate(time, IT_IS_NECESSARY_TO_ENTER_THE_TIME);
         this.id = id;
         this.time = time;
