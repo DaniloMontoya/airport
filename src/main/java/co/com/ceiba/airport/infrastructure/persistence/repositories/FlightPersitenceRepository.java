@@ -5,19 +5,24 @@ import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import co.com.ceiba.airport.infrastructure.persistence.builder.FlightBuilder;
 import co.com.ceiba.airport.infrastructure.persistence.entities.FlightEntity;
 import co.com.ceiba.airport.infrastructure.persistence.repositories.jpa.FlightJPARepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public class FlightPersitenceRepository implements FlightRepository, FlightJPARepository {
+public class FlightPersitenceRepository implements FlightRepository {
 
     private static final String FLIGH_FIND_BY_ID = "Flight.findById";
     private static final String ID = "id";
 
     private EntityManager entityManager;
+
+    @Autowired
+    FlightJPARepository flightJPARepository;
 
     public FlightPersitenceRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
@@ -25,7 +30,8 @@ public class FlightPersitenceRepository implements FlightRepository, FlightJPARe
 
     @Override
     public Flight getFlight(Long id) {
-        FlightEntity flightEntity = getFlightEntityById(id);
+        Optional flightquery = flightJPARepository.findById(id);
+        FlightEntity flightEntity = (FlightEntity) flightquery.get();
         return FlightBuilder.convertToDomain(flightEntity);
     }
 
@@ -36,7 +42,7 @@ public class FlightPersitenceRepository implements FlightRepository, FlightJPARe
 
     @Override
     public Long createFlight(Flight flight) {
-        entityManager.persist(FlightBuilder.convertToEntity(flight));
+        flightJPARepository.save(FlightBuilder.convertToEntity(flight));
         return flight.getId();
     }
 
@@ -58,18 +64,6 @@ public class FlightPersitenceRepository implements FlightRepository, FlightJPARe
 
     @Override
     public boolean isExiste(Long idFlight) {
-        FlightEntity flightEntity = getFlightEntityById(idFlight);
-        if(flightEntity == null){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-    @Override
-    public FlightEntity getFlightEntityById(Long id) {
-        Query query = entityManager.createNamedQuery(FLIGH_FIND_BY_ID);
-        query.setParameter(ID, id);
-        return (FlightEntity) query.getSingleResult();
+        return flightJPARepository.existsById(idFlight);
     }
 }

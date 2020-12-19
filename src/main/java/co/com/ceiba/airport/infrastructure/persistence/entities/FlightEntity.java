@@ -5,13 +5,14 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity(name = "Flight")
-@NamedQuery(name = "Flight.findById", query = "SELECT flight FROM Flight flight WHERE flight.id = :id")
+@Entity
+@Table(name = "flight")
 @Getter
 @Setter
 public class FlightEntity {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false)
     private Long id;
 
     @Column(nullable = false)
