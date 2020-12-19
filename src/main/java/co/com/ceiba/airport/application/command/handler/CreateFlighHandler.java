@@ -7,9 +7,10 @@ import co.com.ceiba.airport.application.command.fabric.FlightFabric;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.services.CreateFlightService;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
-public class CreateFlighHandler implements CommandResponseHandler<FlightCommand, CommandResponse<Long>> {
+public class CreateFlighHandler  {
 
     private final FlightFabric flightFabric;
     private final CreateFlightService createFlightService;
@@ -19,7 +20,7 @@ public class CreateFlighHandler implements CommandResponseHandler<FlightCommand,
         this.createFlightService = createFlightService;
     }
 
-    @Override
+    @Transactional
     public CommandResponse<Long> run(FlightCommand command) {
         Flight flight = this.flightFabric.create(command);
         return new CommandResponse<>(this.createFlightService.run(flight));

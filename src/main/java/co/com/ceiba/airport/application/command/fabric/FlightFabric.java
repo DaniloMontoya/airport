@@ -11,7 +11,7 @@ public class FlightFabric {
         return new Flight(
                 flightCommand.getId(),
                 flightCommand.getTime(),
-                flightCommand.getArrivalDTO(),
+                flightCommand.getArrival(),
                 flightCommand.getCost(),
                 flightCommand.isReprogrammed()
         );

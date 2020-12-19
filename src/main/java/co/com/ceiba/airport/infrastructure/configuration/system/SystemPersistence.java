@@ -17,10 +17,6 @@ public class SystemPersistence {
         return new FlightPersitenceRepository(entityManager);
     }
 
-    public ArrivalRepository getArrivalRepository() {
-        return new ArrivalPersistanceRepository(entityManager);
-    }
-
     public void start() {
         entityManager.getTransaction().begin();
     }

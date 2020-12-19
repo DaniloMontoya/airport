@@ -1,22 +1,25 @@
 package co.com.ceiba.airport.application.query;
 
 import co.com.ceiba.airport.domain.models.dto.FlightDTO;
-import co.com.ceiba.airport.domain.ports.dao.FlightDAO;
+import co.com.ceiba.airport.domain.models.entities.Flight;
+import co.com.ceiba.airport.domain.services.GetAllFlightService;
+import co.com.ceiba.airport.domain.services.GetFlightService;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Component
-public class GetAllFlightHandler {
+public class GetAllFlightHandler  {
 
-    private final FlightDAO flightDAO;
+    private final GetAllFlightService getAllFlightService;
 
-
-    public GetAllFlightHandler(FlightDAO flightDAO) {
-        this.flightDAO = flightDAO;
+    public GetAllFlightHandler(GetAllFlightService getAllFlightService) {
+        this.getAllFlightService = getAllFlightService;
     }
 
-    public List<FlightDTO> run(){
-        return this.flightDAO.getAllFlight();
+    @Transactional
+    public List<Flight> run(){
+        return this.getAllFlightService.run();
     }
 }

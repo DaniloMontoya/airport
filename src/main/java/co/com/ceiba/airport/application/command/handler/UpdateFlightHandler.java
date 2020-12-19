@@ -6,9 +6,10 @@ import co.com.ceiba.airport.application.command.fabric.FlightFabric;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.services.UpdateFlightService;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
-public class UpdateFlightHandler implements CommandHandler<FlightCommand> {
+public class UpdateFlightHandler {
 
     private final FlightFabric flightFabric;
     private final UpdateFlightService updateFlightService;
@@ -18,7 +19,7 @@ public class UpdateFlightHandler implements CommandHandler<FlightCommand> {
         this.updateFlightService = updateFlightService;
     }
 
-    @Override
+    @Transactional
     public void run(FlightCommand flightCommand) {
         Flight flight = this.flightFabric.create(flightCommand);
         this.updateFlightService.run(flight);

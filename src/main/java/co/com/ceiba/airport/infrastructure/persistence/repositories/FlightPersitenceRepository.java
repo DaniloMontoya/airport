@@ -5,18 +5,33 @@ import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import co.com.ceiba.airport.infrastructure.persistence.builder.FlightBuilder;
 import co.com.ceiba.airport.infrastructure.persistence.entities.FlightEntity;
 import co.com.ceiba.airport.infrastructure.persistence.repositories.jpa.FlightJPARepository;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import java.util.List;
 
+@Repository
 public class FlightPersitenceRepository implements FlightRepository, FlightJPARepository {
 
     private static final String FLIGH_FIND_BY_ID = "Flight.findById";
+    private static final String ID = "id";
 
     private EntityManager entityManager;
 
     public FlightPersitenceRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
+    }
+
+    @Override
+    public Flight getFlight(Long id) {
+        FlightEntity flightEntity = getFlightEntityById(id);
+        return FlightBuilder.convertToDomain(flightEntity);
+    }
+
+    @Override
+    public List<Flight> getAllFlight() {
+        return null;
     }
 
     @Override
@@ -43,11 +58,18 @@ public class FlightPersitenceRepository implements FlightRepository, FlightJPARe
 
     @Override
     public boolean isExiste(Long idFlight) {
-        return false;
+        FlightEntity flightEntity = getFlightEntityById(idFlight);
+        if(flightEntity == null){
+            return false;
+        }else{
+            return true;
+        }
     }
 
     @Override
     public FlightEntity getFlightEntityById(Long id) {
-        return null;
+        Query query = entityManager.createNamedQuery(FLIGH_FIND_BY_ID);
+        query.setParameter(ID, id);
+        return (FlightEntity) query.getSingleResult();
     }
 }
