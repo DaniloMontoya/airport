@@ -20,13 +20,13 @@ public class UpdateFlightService {
 
     public void run(Flight flight){
         validatePreviousExist(flight);
-        validateTimeCalendar(flight);
+        //validateTimeCalendar(flight);
         this.flightRepository.updateFlight(flight);
     }
 
     private void validatePreviousExist(Flight flight) {
-        boolean existe = this.flightRepository.isExiste(flight.getId());
-        if(!existe){
+        boolean exist = this.flightRepository.isExiste(flight.getId());
+        if(!exist){
             throw new DuplicityValueException(THE_FLIGHT_DOESNOT_EXIST);
         }
     }

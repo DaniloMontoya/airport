@@ -16,7 +16,6 @@ public class FlightCommandContoller {
     private final CreateFlighHandler createFlighHandler;
     private final DeleteFlightHandler deleteFlightHandler;
 
-    @Autowired
     public FlightCommandContoller(UpdateFlightHandler updateFlightHandler, CreateFlighHandler createFlighHandler, DeleteFlightHandler deleteFlightHandler) {
         this.updateFlightHandler = updateFlightHandler;
         this.createFlighHandler = createFlighHandler;
@@ -26,6 +25,16 @@ public class FlightCommandContoller {
     @PostMapping("/create")
     public CommandResponse<Long> create(@RequestBody FlightCommand flightCommand){
         return createFlighHandler.run(flightCommand);
+    }
+
+    @PutMapping("/update")
+    public void update(@RequestBody FlightCommand flightCommand){
+        updateFlightHandler.run(flightCommand);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable(name = "id") Long id){
+        deleteFlightHandler.run(id);
     }
 
 

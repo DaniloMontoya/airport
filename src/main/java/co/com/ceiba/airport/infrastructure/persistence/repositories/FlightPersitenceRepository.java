@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,7 +38,12 @@ public class FlightPersitenceRepository implements FlightRepository {
 
     @Override
     public List<Flight> getAllFlight() {
-        return null;
+        List<Flight> flightList = new ArrayList<>();
+        List<FlightEntity> flightEntityList = new ArrayList<>();
+        Iterable<FlightEntity> flightListSource = flightJPARepository.findAll();
+        flightListSource.forEach(flightEntityList::add);
+        flightEntityList.forEach((final FlightEntity flightEntity) -> flightList.add(FlightBuilder.convertToDomain(flightEntity)));
+        return flightList;
     }
 
     @Override
@@ -48,13 +54,12 @@ public class FlightPersitenceRepository implements FlightRepository {
 
     @Override
     public void updateFlight(Flight flight) {
-
-
+        flightJPARepository.save(FlightBuilder.convertToEntity(flight));
     }
 
     @Override
     public void deleteFlight(Long id) {
-
+        flightJPARepository.deleteById(id);
     }
 
     @Override
