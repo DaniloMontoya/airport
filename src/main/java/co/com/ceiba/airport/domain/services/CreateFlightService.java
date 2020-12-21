@@ -5,8 +5,6 @@ import co.com.ceiba.airport.domain.exceptions.InvalidTimeException;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 
-import java.util.Optional;
-
 public class CreateFlightService {
 
     private static final String THE_FLIGHT_ALREADY_EXIST = "The flight already exist";
@@ -19,22 +17,19 @@ public class CreateFlightService {
     }
 
     public String run(Flight flight) {
-        validatePreviousExistence(flight);
-        //validateTimeCalendar(flight);
+        validatePreviousExistence(flight.getId());
+        validateTimeCalendar(flight.getTime());
         return this.flightRepository.createFlight(flight);
     }
 
-    private void validatePreviousExistence(Flight flight){
-        boolean exist = this.flightRepository.isExiste(flight.getId());
-        if(exist){
+    public void validatePreviousExistence(String id){
+        if(this.flightRepository.isExiste(id)){
             throw new DuplicityValueException(THE_FLIGHT_ALREADY_EXIST);
         }
     }
 
-
-    private void validateTimeCalendar(Flight flight) {
-        boolean isValid = this.flightRepository.isValidateCalendarTime(flight.getId());
-        if(!isValid) {
+    public void validateTimeCalendar(long time){
+        if(!flightRepository.isValidateTime(time)){
             throw new InvalidTimeException(THE_FLIGHT_TIME_IS_INVALID_IN_THE_CALENDAR);
         }
     }

@@ -16,8 +16,7 @@ import java.util.Optional;
 @Repository
 public class FlightPersitenceRepository implements FlightRepository {
 
-    private static final String FLIGH_FIND_BY_ID = "Flight.findById";
-    private static final String ID = "id";
+    private static final long FIVE_MINUTE_UNIXTIMESTAMP = 300;
 
     private EntityManager entityManager;
 
@@ -61,12 +60,22 @@ public class FlightPersitenceRepository implements FlightRepository {
     }
 
     @Override
-    public boolean isValidateCalendarTime(String idFlight) {
-        return false;
+    public boolean isExiste(String idFlight) {
+        return flightJPARepository.existsById(idFlight);
     }
 
     @Override
-    public boolean isExiste(String idFlight) {
-        return flightJPARepository.existsById(idFlight);
+    public boolean isValidateTime(long time) {
+        boolean isValid = true;
+        long low = time - FIVE_MINUTE_UNIXTIMESTAMP;
+        long high = time + FIVE_MINUTE_UNIXTIMESTAMP;
+        List<Flight> flightList = getAllFlight();
+        for(Flight flight : flightList){
+            if (flight.getTime() > low && flight.getTime() < high){
+                isValid = false;
+                break;
+            }
+        }
+        return isValid;
     }
 }

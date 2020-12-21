@@ -10,6 +10,6 @@ public interface FlightRepository {
     String createFlight(Flight flight);
     void updateFlight(Flight flight);
     void deleteFlight(String id);
-    boolean isValidateCalendarTime(String idFlight);
     boolean isExiste(String idFlight);
+    boolean isValidateTime(long time);
 }
