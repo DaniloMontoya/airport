@@ -48,8 +48,7 @@ public class FlightPersitenceRepository implements FlightRepository {
 
     @Override
     public Long createFlight(Flight flight) {
-        flightJPARepository.save(FlightBuilder.convertToEntity(flight));
-        return flight.getId();
+        return flightJPARepository.save(FlightBuilder.convertToEntity(flight)).getId();
     }
 
     @Override

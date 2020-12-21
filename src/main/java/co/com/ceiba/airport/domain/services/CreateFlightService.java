@@ -19,7 +19,7 @@ public class CreateFlightService {
     }
 
     public Long run(Flight flight) {
-        validatePreviousExistence(flight);
+        //validatePreviousExistence(flight);
         //validateTimeCalendar(flight);
         return this.flightRepository.createFlight(flight);
     }
