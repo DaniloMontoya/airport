@@ -1,6 +1,5 @@
 package co.com.ceiba.airport.application.command.handler;
 
-import co.com.ceiba.airport.application.command.CommandHandler;
 import co.com.ceiba.airport.application.command.FlightCommand;
 import co.com.ceiba.airport.application.command.fabric.FlightFabric;
 import co.com.ceiba.airport.domain.models.entities.Flight;

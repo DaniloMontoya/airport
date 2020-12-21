@@ -1,8 +1,6 @@
 package co.com.ceiba.airport.domain.services;
 
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 public class DeleteFlightService {
 
@@ -12,7 +10,7 @@ public class DeleteFlightService {
         this.flightRepository = flightRepository;
     }
 
-    public void run(Long id){
+    public void run(String id){
         this.flightRepository.deleteFlight(id);
     }
 }

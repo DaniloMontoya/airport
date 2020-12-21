@@ -1,6 +1,5 @@
 package co.com.ceiba.airport.application.command.handler;
 
-import co.com.ceiba.airport.application.command.CommandHandler;
 import co.com.ceiba.airport.domain.services.DeleteFlightService;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +14,7 @@ public class DeleteFlightHandler {
     }
 
     @Transactional
-    public void run(Long idFlight) {
+    public void run(String idFlight) {
         this.deleteFlightService.run(idFlight);
     }
 }

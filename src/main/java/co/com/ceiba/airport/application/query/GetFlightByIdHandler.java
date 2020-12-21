@@ -1,6 +1,5 @@
 package co.com.ceiba.airport.application.query;
 
-import co.com.ceiba.airport.domain.models.dto.FlightDTO;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.services.GetFlightService;
 import org.springframework.stereotype.Component;
@@ -16,7 +15,7 @@ public class GetFlightByIdHandler {
     }
 
     @Transactional
-    public Flight run(Long id){
+    public Flight run(String id){
         return this.getFlightService.run(id);
     }
 }

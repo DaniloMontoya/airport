@@ -5,11 +5,11 @@ import co.com.ceiba.airport.domain.models.entities.Flight;
 import java.util.List;
 
 public interface FlightRepository {
-    Flight getFlight(Long id);
+    Flight getFlight(String id);
     List<Flight> getAllFlight();
-    Long createFlight(Flight flight);
+    String createFlight(Flight flight);
     void updateFlight(Flight flight);
-    void deleteFlight(Long id);
-    boolean isValidateCalendarTime(Long idFlight);
-    boolean isExiste(Long idFlight);
+    void deleteFlight(String id);
+    boolean isValidateCalendarTime(String idFlight);
+    boolean isExiste(String idFlight);
 }

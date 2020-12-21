@@ -2,7 +2,6 @@ package co.com.ceiba.airport.infrastructure.controller;
 
 import co.com.ceiba.airport.application.query.GetAllFlightHandler;
 import co.com.ceiba.airport.domain.models.entities.Flight;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -30,7 +29,7 @@ public class FlightPersitenceRepository implements FlightRepository {
     }
 
     @Override
-    public Flight getFlight(Long id) {
+    public Flight getFlight(String id) {
         Optional flightquery = flightJPARepository.findById(id);
         FlightEntity flightEntity = (FlightEntity) flightquery.get();
         return FlightBuilder.convertToDomain(flightEntity);
@@ -47,7 +46,7 @@ public class FlightPersitenceRepository implements FlightRepository {
     }
 
     @Override
-    public Long createFlight(Flight flight) {
+    public String createFlight(Flight flight) {
         return flightJPARepository.save(FlightBuilder.convertToEntity(flight)).getId();
     }
 
@@ -57,17 +56,17 @@ public class FlightPersitenceRepository implements FlightRepository {
     }
 
     @Override
-    public void deleteFlight(Long id) {
+    public void deleteFlight(String id) {
         flightJPARepository.deleteById(id);
     }
 
     @Override
-    public boolean isValidateCalendarTime(Long idFlight) {
+    public boolean isValidateCalendarTime(String idFlight) {
         return false;
     }
 
     @Override
-    public boolean isExiste(Long idFlight) {
+    public boolean isExiste(String idFlight) {
         return flightJPARepository.existsById(idFlight);
     }
 }

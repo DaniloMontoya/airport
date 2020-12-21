@@ -14,7 +14,7 @@ public class GetFlightService {
     }
 
     @Transactional
-    public Flight run(Long id){
+    public Flight run(String id){
         return this.flightRepository.getFlight(id);
     }
 }

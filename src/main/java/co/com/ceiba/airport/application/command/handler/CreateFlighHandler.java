@@ -1,7 +1,6 @@
 package co.com.ceiba.airport.application.command.handler;
 
 import co.com.ceiba.airport.application.command.CommandResponse;
-import co.com.ceiba.airport.application.command.CommandResponseHandler;
 import co.com.ceiba.airport.application.command.FlightCommand;
 import co.com.ceiba.airport.application.command.fabric.FlightFabric;
 import co.com.ceiba.airport.domain.models.entities.Flight;
@@ -21,7 +20,7 @@ public class CreateFlighHandler  {
     }
 
     @Transactional
-    public CommandResponse<Long> run(FlightCommand command) {
+    public CommandResponse<String> run(FlightCommand command) {
         Flight flight = this.flightFabric.create(command);
         return new CommandResponse<>(this.createFlightService.run(flight));
     }

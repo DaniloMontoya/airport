@@ -23,7 +23,7 @@ public class FlightCommandContoller {
     }
 
     @PostMapping("/create")
-    public CommandResponse<Long> create(@RequestBody FlightCommand flightCommand){
+    public CommandResponse<String> create(@RequestBody FlightCommand flightCommand){
         return createFlighHandler.run(flightCommand);
     }
 
@@ -33,7 +33,7 @@ public class FlightCommandContoller {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable(name = "id") Long id){
+    public void delete(@PathVariable(name = "id") String id){
         deleteFlightHandler.run(id);
     }
 

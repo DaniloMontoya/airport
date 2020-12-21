@@ -11,9 +11,9 @@ import javax.persistence.*;
 @Setter
 public class FlightEntity {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
     @Column(nullable = false)
-    private Long id;
+    private String id;
 
     @Column(nullable = false)
     private long time;

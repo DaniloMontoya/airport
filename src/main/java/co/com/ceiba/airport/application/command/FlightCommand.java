@@ -10,7 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FlightCommand {
-    private Long id;
+    private String id;
     private long time;
     private String arrival;
     private float cost;

@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class FlightDTO {
-    private Long id;
+    private String id;
     private long time;
     private String arrival;
     private float cost;
