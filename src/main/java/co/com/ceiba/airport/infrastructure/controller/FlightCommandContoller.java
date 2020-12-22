@@ -30,7 +30,7 @@ public class FlightCommandContoller {
     }
 
     @PutMapping("/update")
-    public void update(@RequestBody FlightCommand flightCommand){
+    public void update(@Valid @RequestBody FlightCommand flightCommand){
         updateFlightHandler.run(flightCommand);
     }
 

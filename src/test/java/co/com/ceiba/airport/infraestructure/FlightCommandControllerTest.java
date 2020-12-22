@@ -3,14 +3,19 @@ package co.com.ceiba.airport.infraestructure;
 import co.com.ceiba.airport.application.command.FlightCommand;
 import co.com.ceiba.airport.testdatabuilder.FlightTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @RunWith(SpringRunner.class)
@@ -26,9 +31,36 @@ public class FlightCommandControllerTest {
 
 
     @Test
-    public void createFlightTest(){
+    public void createFlightTest() throws Exception{
         FlightCommand flightCommand = new FlightTestDataBuilder().buildCommand();
+        mvc.perform(MockMvcRequestBuilders
+                .post("/flight/create")
+                .content(objectMapper.writeValueAsString(flightCommand))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
 
+    @Test
+    public void updateFlightTest() throws Exception{
+        FlightCommand flightCommand = new FlightTestDataBuilder().buildCommand();
+        mvc.perform(MockMvcRequestBuilders
+                .put("/flight/update")
+                .content(objectMapper.writeValueAsString(flightCommand))
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void deleteFlightTest() throws Exception{
+        FlightCommand flightCommand = new FlightTestDataBuilder().buildCommand();
+        mvc.perform(MockMvcRequestBuilders
+                .delete("/flight/delete/{id}", "London-1608404400")
+                .content(objectMapper.writeValueAsString(flightCommand))
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
     }
 
 }

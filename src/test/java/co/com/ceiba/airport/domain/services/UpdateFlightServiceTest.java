@@ -3,6 +3,7 @@ package co.com.ceiba.airport.domain.services;
 import co.com.ceiba.airport.domain.BaseTest;
 import co.com.ceiba.airport.domain.exceptions.DuplicityValueException;
 import co.com.ceiba.airport.domain.exceptions.InvalidTimeException;
+import co.com.ceiba.airport.domain.exceptions.NotExistException;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import co.com.ceiba.airport.testdatabuilder.FlightTestDataBuilder;
@@ -40,7 +41,7 @@ public class UpdateFlightServiceTest {
         UpdateFlightService updateFlightService = new UpdateFlightService(flightRepository);
 
         //act - assert
-        BaseTest.assertThrows(() -> updateFlightService.run(flight), DuplicityValueException.class, "The flight does not exist");
+        BaseTest.assertThrows(() -> updateFlightService.run(flight), NotExistException.class, "The flight does not exist");
     }
 
     @Test

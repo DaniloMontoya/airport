@@ -4,7 +4,7 @@ import co.com.ceiba.airport.application.command.FlightCommand;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 
 public class FlightTestDataBuilder {
-    private static final long FECHA_HORA_SALIDA = 1608320500;
+    private static final long FECHA_HORA_SALIDA = 1608404400;
     private static final String CIUDAD_DE_LLEGADA = "London";
     private static final float COSTO_DEL_VUELO = 181.03f;
     private static final boolean ES_REPOGRAMADO = false;

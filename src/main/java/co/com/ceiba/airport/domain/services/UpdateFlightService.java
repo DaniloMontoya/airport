@@ -1,6 +1,7 @@
 package co.com.ceiba.airport.domain.services;
 
 import co.com.ceiba.airport.domain.exceptions.DuplicityValueException;
+import co.com.ceiba.airport.domain.exceptions.NotExistException;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.exceptions.InvalidTimeException;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
@@ -25,7 +26,7 @@ public class UpdateFlightService {
 
     private void validatePreviousExist(Flight flight) {
         if(!this.flightRepository.isExiste(flight.getId())){
-            throw new DuplicityValueException(THE_FLIGHT_DOESNOT_EXIST);
+            throw new NotExistException(THE_FLIGHT_DOESNOT_EXIST);
         }
     }
 

@@ -12,7 +12,7 @@ public class FlightFabric {
 
     public Flight create(FlightCommand flightCommand){
         return new Flight(
-                generateFlightId(flightCommand.getTime(), flightCommand.getArrival()),
+                generateFlightId(flightCommand.getTime(), flightCommand.getArrival(), flightCommand.isReprogrammed(), flightCommand.getId()),
                 flightCommand.getTime(),
                 flightCommand.getArrival(),
                 recalculateCost(flightCommand.getCost(), flightCommand.getTime(), flightCommand.isReprogrammed()),
@@ -20,8 +20,14 @@ public class FlightFabric {
         );
     }
 
-    private String generateFlightId(long time, String arrival) {
-        return arrival + "-" + time;
+    private String generateFlightId(long time, String arrival, boolean isReprogrammed, String id) {
+        String newID;
+        if (isReprogrammed) {
+            newID = id;
+        }else {
+            newID = arrival + "-" + time;
+        }
+        return newID;
     }
 
     private float recalculateCost(float cost, long time, boolean isReprogramed){

@@ -20,6 +20,7 @@ public class UpdateFlightHandler {
 
     @Transactional
     public void run(FlightCommand flightCommand) {
+        flightCommand.setReprogrammed(true);
         Flight flight = this.flightFabric.create(flightCommand);
         this.updateFlightService.run(flight);
     }
