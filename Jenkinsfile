@@ -33,7 +33,7 @@ pipeline {
         url:'https://github.com/luismiguel010/airport.git'
         ]]
         ])
-        sh 'gradle --b ./airport/build.gradle clean compileJava'
+        sh 'gradle --b ./build.gradle clean compileJava'
       }
     }
 
