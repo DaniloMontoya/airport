@@ -1,7 +1,7 @@
 package co.com.ceiba.airport.domain.services;
 
 import co.com.ceiba.airport.domain.models.entities.Flight;
-import co.com.ceiba.airport.domain.testdatabuilder.FlightTestDataBuilder;
+import co.com.ceiba.airport.testdatabuilder.FlightTestDataBuilder;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 

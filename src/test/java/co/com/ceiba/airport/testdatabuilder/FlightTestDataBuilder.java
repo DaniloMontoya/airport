@@ -1,9 +1,9 @@
-package co.com.ceiba.airport.domain.testdatabuilder;
+package co.com.ceiba.airport.testdatabuilder;
 
+import co.com.ceiba.airport.application.command.FlightCommand;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 
 public class FlightTestDataBuilder {
-
     private static final long FECHA_HORA_SALIDA = 1608320500;
     private static final String CIUDAD_DE_LLEGADA = "London";
     private static final float COSTO_DEL_VUELO = 181.03f;
@@ -49,5 +49,9 @@ public class FlightTestDataBuilder {
 
     public Flight build(){
         return new Flight(this.id, this.time, this.arrival, this.cost, this.isReprogrammed);
+    }
+
+    public FlightCommand buildCommand(){
+        return new FlightCommand(this.id, this.time, this.arrival, this.cost, this.isReprogrammed);
     }
 }
