@@ -25,7 +25,7 @@ public class FlightCommandContoller {
     }
 
     @PostMapping("/create")
-    public CommandResponse<String> create(@RequestBody FlightCommand flightCommand){
+    public CommandResponse<String> create(@Valid @RequestBody FlightCommand flightCommand){
         return createFlighHandler.run(flightCommand);
     }
 
