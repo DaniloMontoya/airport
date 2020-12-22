@@ -8,6 +8,8 @@ import co.com.ceiba.airport.application.command.handler.UpdateFlightHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/flight")
 public class FlightCommandContoller {
