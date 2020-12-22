@@ -42,6 +42,7 @@ public class FlightCommandControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.value").value("Barcelona-1608417400"));
     }
 
+
     @Test
     public void updateFlightTest() throws Exception{
         FlightCommand flightCommand = new FlightCommand("Madird-1608414400", 1608416400, "Madrid", 181.03f, false);
@@ -58,7 +59,7 @@ public class FlightCommandControllerTest {
     public void deleteFlightTest() throws Exception{
         FlightCommand flightCommand = new FlightTestDataBuilder().buildCommand();
         mvc.perform(MockMvcRequestBuilders
-                .delete("/flight/delete/{id}", "London-1608404400")
+                .delete("/flight/delete/{id}", "Lisboa-1608520500")
                 .content(objectMapper.writeValueAsString(flightCommand))
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())

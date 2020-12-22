@@ -39,11 +39,11 @@ public class FlightQueryControllerTest {
     @Test
     public void getFlightByIdTest() throws Exception{
         mvc.perform(MockMvcRequestBuilders
-                .get("/flight/getFlightById/{id}", "London-1608404400")
+                .get("/flight/getFlightById/{id}", "Medellin-1608320500")
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value("London-1608404400"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value("Medellin-1608320500"));
 
     }
 }

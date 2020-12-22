@@ -10,10 +10,21 @@ import org.mockito.stubbing.OngoingStubbing;
 
 import java.util.Optional;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class DeleteFlightServiceTest {
+
+    @Test
+    public void deleteFlightTest(){
+        //arrange
+        String id = "London-123456789";
+        FlightRepository flightRepository = mock(FlightRepository.class);
+        when(flightRepository.isExiste(id)).thenReturn(true);
+        doNothing().when(flightRepository).deleteFlight(id);
+        DeleteFlightService deleteFlightService = new DeleteFlightService(flightRepository);
+        //act - assert
+        deleteFlightService.run(id);
+    }
 
     @Test
     public void validatePreviousFlightDoesnotExistTest(){
