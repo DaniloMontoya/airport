@@ -32,21 +32,23 @@ public class FlightCommandControllerTest {
 
     @Test
     public void createFlightTest() throws Exception{
-        FlightCommand flightCommand = new FlightTestDataBuilder().buildCommand();
+        FlightCommand flightCommand = new FlightCommand(null, 1608417400, "Barcelona", 181.03f, false);
         mvc.perform(MockMvcRequestBuilders
                 .post("/flight/create")
                 .content(objectMapper.writeValueAsString(flightCommand))
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.value").value("Barcelona-1608417400"));
     }
 
     @Test
     public void updateFlightTest() throws Exception{
-        FlightCommand flightCommand = new FlightTestDataBuilder().buildCommand();
+        FlightCommand flightCommand = new FlightCommand("Madird-1608414400", 1608416400, "Madrid", 181.03f, false);
         mvc.perform(MockMvcRequestBuilders
                 .put("/flight/update")
                 .content(objectMapper.writeValueAsString(flightCommand))
+                .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk());

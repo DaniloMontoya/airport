@@ -4,7 +4,9 @@ import co.com.ceiba.airport.application.command.FlightCommand;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 
 public class FlightTestDataBuilder {
-    private static final long FECHA_HORA_SALIDA = 1608404400;
+
+    private static final String ID = "London-1608404400";
+    private static final long FECHA_HORA_SALIDA = 1608406400;
     private static final String CIUDAD_DE_LLEGADA = "London";
     private static final float COSTO_DEL_VUELO = 181.03f;
     private static final boolean ES_REPOGRAMADO = false;
@@ -16,6 +18,7 @@ public class FlightTestDataBuilder {
     private boolean isReprogrammed;
 
     public FlightTestDataBuilder(){
+        this.id = ID;
         this.time = FECHA_HORA_SALIDA;
         this.arrival = CIUDAD_DE_LLEGADA;
         this.cost = COSTO_DEL_VUELO;
