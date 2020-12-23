@@ -17,7 +17,7 @@ public class FlightCommand {
 
     @NotNull(message = "Time is mandatory")
     @Min(1)
-    private long time_departure;
+    private long timeDeparture;
 
     @NotBlank(message = "Arrival is mandatory")
     private String arrival;

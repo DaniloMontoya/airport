@@ -22,7 +22,7 @@ class CreateFlightServiceTest {
         Flight flight = flightTestDataBuilder.build();
         FlightRepository flightRepository = mock(FlightRepository.class);
         when(flightRepository.isExiste(flight.getId())).thenReturn(false);
-        when(flightRepository.isValidateTime(flight.getTime_departure())).thenReturn(true);
+        when(flightRepository.isValidateTime(flight.getTimeDeparture())).thenReturn(true);
         when(flightRepository.createFlight(flight)).thenReturn(flight.getId());
         CreateFlightService createFlightService = new CreateFlightService(flightRepository);
 
@@ -53,7 +53,7 @@ class CreateFlightServiceTest {
         Flight flight = flightTestDataBuilder.build();
         FlightRepository flightRepository = mock(FlightRepository.class);
         when(flightRepository.isExiste(flight.getId())).thenReturn(false);
-        when(flightRepository.isValidateTime(flight.getTime_departure())).thenReturn(false);
+        when(flightRepository.isValidateTime(flight.getTimeDeparture())).thenReturn(false);
 
         CreateFlightService createFlightService = new CreateFlightService(flightRepository);
 

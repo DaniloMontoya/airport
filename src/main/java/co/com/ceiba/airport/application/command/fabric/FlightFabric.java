@@ -11,10 +11,10 @@ public class FlightFabric {
 
     public Flight create(FlightCommand flightCommand){
         return new Flight(
-                generateFlightId(flightCommand.getTime_departure(), flightCommand.getArrival(), flightCommand.isReprogrammed(), flightCommand.getId()),
-                flightCommand.getTime_departure(),
+                generateFlightId(flightCommand.getTimeDeparture(), flightCommand.getArrival(), flightCommand.isReprogrammed(), flightCommand.getId()),
+                flightCommand.getTimeDeparture(),
                 flightCommand.getArrival(),
-                recalculateCost(flightCommand.getCost(), flightCommand.getTime_departure(), flightCommand.isReprogrammed()),
+                recalculateCost(flightCommand.getCost(), flightCommand.getTimeDeparture(), flightCommand.isReprogrammed()),
                 flightCommand.isReprogrammed()
         );
     }

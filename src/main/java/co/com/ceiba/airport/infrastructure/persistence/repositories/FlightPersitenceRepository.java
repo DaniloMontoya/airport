@@ -71,7 +71,7 @@ public class FlightPersitenceRepository implements FlightRepository {
         long high = time + FIVE_MINUTE_UNIXTIMESTAMP;
         List<Flight> flightList = getAllFlight();
         for(Flight flight : flightList){
-            if (flight.getTime_departure() > low && flight.getTime_departure() < high){
+            if (flight.getTimeDeparture() > low && flight.getTimeDeparture() < high){
                 isValid = false;
                 break;
             }

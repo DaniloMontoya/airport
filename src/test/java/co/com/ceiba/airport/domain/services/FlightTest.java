@@ -23,7 +23,7 @@ class FlightTest {
         //act
         Flight flight = flightTestDataBuilder.build();
         //asset
-        Assert.assertEquals(FECHA_HORA_SALIDA, flight.getTime_departure());
+        Assert.assertEquals(FECHA_HORA_SALIDA, flight.getTimeDeparture());
         Assert.assertEquals(CIUDAD_DE_LLEGADA, flight.getArrival());
         Assert.assertEquals(COSTO_DEL_VUELO, flight.getCost(), 0);
         Assert.assertEquals(ES_REPOGRAMADO, flight.isReprogrammed());
