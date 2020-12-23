@@ -46,8 +46,8 @@ co/com/ceiba/airport/application/command/handler/UpdateFlightHandler.java
  co.com.ceiba.airport.application.command.handler.UpdateFlightHandler
 co/com/ceiba/airport/infrastructure/persistence/repositories/jpa/FlightJPARepository.java
  co.com.ceiba.airport.infrastructure.persistence.repositories.jpa.FlightJPARepository
-co/com/ceiba/airport/infrastructure/persistence/repositories/FlightPersitenceRepository.java
- co.com.ceiba.airport.infrastructure.persistence.repositories.FlightPersitenceRepository
+co/com/ceiba/airport/infrastructure/controller/FlightCommandContoller.java
+ co.com.ceiba.airport.infrastructure.controller.FlightCommandContoller
 co/com/ceiba/airport/domain/ArgumentsValidater.java
  co.com.ceiba.airport.domain.ArgumentsValidater
 co/com/ceiba/airport/infrastructure/persistence/builder/FlightBuilder.java
@@ -58,5 +58,5 @@ co/com/ceiba/airport/application/command/handler/CreateFlighHandler.java
  co.com.ceiba.airport.application.command.handler.CreateFlighHandler
 co/com/ceiba/airport/infrastructure/configuration/BeanService.java
  co.com.ceiba.airport.infrastructure.configuration.BeanService
-co/com/ceiba/airport/infrastructure/controller/FlightCommandContoller.java
- co.com.ceiba.airport.infrastructure.controller.FlightCommandContoller
+co/com/ceiba/airport/infrastructure/persistence/repositories/FlightPersitenceRepository.java
+ co.com.ceiba.airport.infrastructure.persistence.repositories.FlightPersitenceRepository

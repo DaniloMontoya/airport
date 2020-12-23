@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FlightPersitenceRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">airport</a> &gt; <a href="index.source.html" class="el_package">co.com.ceiba.airport.infrastructure.persistence.repositories</a> &gt; <span class="el_source">FlightPersitenceRepository.java</span></div><h1>FlightPersitenceRepository.java</h1><pre class="source lang-java linenums">package co.com.ceiba.airport.infrastructure.persistence.repositories;
 
+import co.com.ceiba.airport.domain.exceptions.NotExistException;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import co.com.ceiba.airport.infrastructure.persistence.builder.FlightBuilder;
@@ -13,8 +14,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-<span class="fc" id="L16">public class FlightPersitenceRepository implements FlightRepository {</span>
+<span class="fc" id="L17">public class FlightPersitenceRepository implements FlightRepository {</span>
 
+    private static final String THE_FLIGHT_DOESNOT_EXIST = &quot;The flight does not exist&quot;;
     private static final long FIVE_MINUTE_UNIXTIMESTAMP = 300;
 
     @Autowired
@@ -22,54 +24,59 @@ import java.util.Optional;
 
     @Override
     public Flight getFlight(String id) {
-<span class="fc" id="L25">        Optional flightquery = flightJPARepository.findById(id);</span>
-<span class="fc" id="L26">        FlightEntity flightEntity = (FlightEntity) flightquery.get();</span>
-<span class="fc" id="L27">        return FlightBuilder.convertToDomain(flightEntity);</span>
+        FlightEntity flightEntity;
+<span class="fc" id="L28">        Optional flightquery = flightJPARepository.findById(id);</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">        if(!flightquery.isPresent()) {</span>
+<span class="nc" id="L30">            throw new NotExistException(THE_FLIGHT_DOESNOT_EXIST);</span>
+        }else{
+<span class="fc" id="L32">            flightEntity = (FlightEntity) flightquery.get();</span>
+        }
+<span class="fc" id="L34">        return FlightBuilder.convertToDomain(flightEntity);</span>
     }
 
     @Override
     public List&lt;Flight&gt; getAllFlight() {
-<span class="fc" id="L32">        List&lt;Flight&gt; flightList = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L33">        List&lt;FlightEntity&gt; flightEntityList = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L34">        Iterable&lt;FlightEntity&gt; flightListSource = flightJPARepository.findAll();</span>
-<span class="fc" id="L35">        flightListSource.forEach(flightEntityList::add);</span>
-<span class="fc" id="L36">        flightEntityList.forEach((final FlightEntity flightEntity) -&gt; flightList.add(FlightBuilder.convertToDomain(flightEntity)));</span>
-<span class="fc" id="L37">        return flightList;</span>
+<span class="fc" id="L39">        List&lt;Flight&gt; flightList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L40">        List&lt;FlightEntity&gt; flightEntityList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L41">        Iterable&lt;FlightEntity&gt; flightListSource = flightJPARepository.findAll();</span>
+<span class="fc" id="L42">        flightListSource.forEach(flightEntityList::add);</span>
+<span class="fc" id="L43">        flightEntityList.forEach((final FlightEntity flightEntity) -&gt; flightList.add(FlightBuilder.convertToDomain(flightEntity)));</span>
+<span class="fc" id="L44">        return flightList;</span>
     }
 
     @Override
     public String createFlight(Flight flight) {
-<span class="fc" id="L42">        return flightJPARepository.save(FlightBuilder.convertToEntity(flight)).getId();</span>
+<span class="fc" id="L49">        return flightJPARepository.save(FlightBuilder.convertToEntity(flight)).getId();</span>
     }
 
     @Override
     public void updateFlight(Flight flight) {
-<span class="fc" id="L47">        flightJPARepository.save(FlightBuilder.convertToEntity(flight));</span>
-<span class="fc" id="L48">    }</span>
+<span class="fc" id="L54">        flightJPARepository.save(FlightBuilder.convertToEntity(flight));</span>
+<span class="fc" id="L55">    }</span>
 
     @Override
     public void deleteFlight(String id) {
-<span class="fc" id="L52">        flightJPARepository.deleteById(id);</span>
-<span class="fc" id="L53">    }</span>
+<span class="fc" id="L59">        flightJPARepository.deleteById(id);</span>
+<span class="fc" id="L60">    }</span>
 
     @Override
     public boolean isExiste(String idFlight) {
-<span class="fc" id="L57">        return flightJPARepository.existsById(idFlight);</span>
+<span class="fc" id="L64">        return flightJPARepository.existsById(idFlight);</span>
     }
 
     @Override
     public boolean isValidateTime(long time) {
-<span class="fc" id="L62">        boolean isValid = true;</span>
-<span class="fc" id="L63">        long low = time - FIVE_MINUTE_UNIXTIMESTAMP;</span>
-<span class="fc" id="L64">        long high = time + FIVE_MINUTE_UNIXTIMESTAMP;</span>
-<span class="fc" id="L65">        List&lt;Flight&gt; flightList = getAllFlight();</span>
-<span class="fc bfc" id="L66" title="All 2 branches covered.">        for(Flight flight : flightList){</span>
-<span class="pc bpc" id="L67" title="1 of 4 branches missed.">            if (flight.getTime() &gt; low &amp;&amp; flight.getTime() &lt; high){</span>
-<span class="nc" id="L68">                isValid = false;</span>
-<span class="nc" id="L69">                break;</span>
+<span class="fc" id="L69">        boolean isValid = true;</span>
+<span class="fc" id="L70">        long low = time - FIVE_MINUTE_UNIXTIMESTAMP;</span>
+<span class="fc" id="L71">        long high = time + FIVE_MINUTE_UNIXTIMESTAMP;</span>
+<span class="fc" id="L72">        List&lt;Flight&gt; flightList = getAllFlight();</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        for(Flight flight : flightList){</span>
+<span class="pc bpc" id="L74" title="1 of 4 branches missed.">            if (flight.getTime() &gt; low &amp;&amp; flight.getTime() &lt; high){</span>
+<span class="nc" id="L75">                isValid = false;</span>
+<span class="nc" id="L76">                break;</span>
             }
-<span class="fc" id="L71">        }</span>
-<span class="fc" id="L72">        return isValid;</span>
+<span class="fc" id="L78">        }</span>
+<span class="fc" id="L79">        return isValid;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
