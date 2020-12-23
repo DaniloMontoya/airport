@@ -18,7 +18,7 @@ public class CreateFlightService {
 
     public String run(Flight flight) {
         validatePreviousExistence(flight.getId());
-        validateTimeCalendar(flight.getTime());
+        validateTimeCalendar(flight.getTime_departure());
         return this.flightRepository.createFlight(flight);
     }
 

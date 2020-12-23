@@ -14,7 +14,7 @@ public final class FlightBuilder {
         if(flightEntity != null){
             flight = new Flight(
                     flightEntity.getId(),
-                    flightEntity.getTime(),
+                    flightEntity.getTime_departure(),
                     flightEntity.getArrival(),
                     flightEntity.getCost(),
                     flightEntity.isReprogrammed());
@@ -27,7 +27,7 @@ public final class FlightBuilder {
     public static FlightEntity convertToEntity(Flight flight){
         FlightEntity flightEntity = new FlightEntity();
         flightEntity.setId(flight.getId());
-        flightEntity.setTime(flight.getTime());
+        flightEntity.setTime_departure(flight.getTime_departure());
         flightEntity.setArrival(flight.getArrival());
         flightEntity.setCost(flight.getCost());
         flightEntity.setReprogrammed(flight.isReprogrammed());

@@ -12,14 +12,14 @@ public class FlightTestDataBuilder {
     private static final boolean ES_REPOGRAMADO = false;
 
     private String id;
-    private long time;
+    private long time_departures;
     private String arrival;
     private float cost;
     private boolean isReprogrammed;
 
     public FlightTestDataBuilder(){
         this.id = ID;
-        this.time = FECHA_HORA_SALIDA;
+        this.time_departures = FECHA_HORA_SALIDA;
         this.arrival = CIUDAD_DE_LLEGADA;
         this.cost = COSTO_DEL_VUELO;
         this.isReprogrammed = ES_REPOGRAMADO;
@@ -30,8 +30,8 @@ public class FlightTestDataBuilder {
         return this;
     }
 
-    public FlightTestDataBuilder conHoraDeSalida(long time) {
-        this.time = time;
+    public FlightTestDataBuilder conHoraDeSalida(long time_departures) {
+        this.time_departures = time_departures;
         return this;
     }
 
@@ -51,10 +51,10 @@ public class FlightTestDataBuilder {
     }
 
     public Flight build(){
-        return new Flight(this.id, this.time, this.arrival, this.cost, this.isReprogrammed);
+        return new Flight(this.id, this.time_departures, this.arrival, this.cost, this.isReprogrammed);
     }
 
     public FlightCommand buildCommand(){
-        return new FlightCommand(this.id, this.time, this.arrival, this.cost, this.isReprogrammed);
+        return new FlightCommand(this.id, this.time_departures, this.arrival, this.cost, this.isReprogrammed);
     }
 }

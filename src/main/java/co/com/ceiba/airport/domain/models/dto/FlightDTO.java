@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class FlightDTO {
     private String id;
-    private long time;
+    private long time_departure;
     private String arrival;
     private float cost;
     private boolean isReprogrammed;

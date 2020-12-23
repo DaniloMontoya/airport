@@ -22,7 +22,7 @@ class UpdateFlightServiceTest {
         Flight flight = flightTestDataBuilder.build();
         FlightRepository flightRepository = mock(FlightRepository.class);
         when(flightRepository.isExiste(flight.getId())).thenReturn(true);
-        when(flightRepository.isValidateTime(flight.getTime())).thenReturn(true);
+        when(flightRepository.isValidateTime(flight.getTime_departure())).thenReturn(true);
         doNothing().when(flightRepository).updateFlight(flight);
         UpdateFlightService updateFlightService = new UpdateFlightService(flightRepository);
         //act - assert
@@ -50,7 +50,7 @@ class UpdateFlightServiceTest {
         Flight flight = flightTestDataBuilder.build();
         FlightRepository flightRepository = mock(FlightRepository.class);
         when(flightRepository.isExiste(flight.getId())).thenReturn(true);
-        when(flightRepository.isValidateTime(flight.getTime())).thenReturn(false);
+        when(flightRepository.isValidateTime(flight.getTime_departure())).thenReturn(false);
         UpdateFlightService updateFlightService = new UpdateFlightService(flightRepository);
         //act - assert
         BasePrueba.assertThrows(() -> updateFlightService.run(flight), InvalidTimeException.class, "The flight time is invalid in the calendar");

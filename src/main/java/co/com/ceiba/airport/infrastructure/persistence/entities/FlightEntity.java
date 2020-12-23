@@ -16,7 +16,7 @@ public class FlightEntity {
     private String id;
 
     @Column(nullable = false)
-    private long time;
+    private long time_departure;
 
     @Column(nullable = false)
     private String arrival;

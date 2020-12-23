@@ -17,7 +17,7 @@ public class UpdateFlightService {
 
     public void run(Flight flight){
         validatePreviousExist(flight);
-        validateTimeCalendar(flight.getTime());
+        validateTimeCalendar(flight.getTime_departure());
         this.flightRepository.updateFlight(flight);
     }
 
