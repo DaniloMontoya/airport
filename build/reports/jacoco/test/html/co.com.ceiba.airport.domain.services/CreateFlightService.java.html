@@ -12,26 +12,26 @@ public class CreateFlightService {
 
     private final FlightRepository flightRepository;
 
-<span class="nc" id="L15">    public CreateFlightService(FlightRepository flightRepository) {</span>
-<span class="nc" id="L16">        this.flightRepository = flightRepository;</span>
-<span class="nc" id="L17">    }</span>
+<span class="fc" id="L15">    public CreateFlightService(FlightRepository flightRepository) {</span>
+<span class="fc" id="L16">        this.flightRepository = flightRepository;</span>
+<span class="fc" id="L17">    }</span>
 
     public String run(Flight flight) {
-<span class="nc" id="L20">        validatePreviousExistence(flight.getId());</span>
-<span class="nc" id="L21">        validateTimeCalendar(flight.getTime());</span>
-<span class="nc" id="L22">        return this.flightRepository.createFlight(flight);</span>
+<span class="fc" id="L20">        validatePreviousExistence(flight.getId());</span>
+<span class="fc" id="L21">        validateTimeCalendar(flight.getTime());</span>
+<span class="fc" id="L22">        return this.flightRepository.createFlight(flight);</span>
     }
 
     public void validatePreviousExistence(String id){
-<span class="nc bnc" id="L26" title="All 2 branches missed.">        if(this.flightRepository.isExiste(id)){</span>
-<span class="nc" id="L27">            throw new DuplicityValueException(THE_FLIGHT_ALREADY_EXIST);</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        if(this.flightRepository.isExiste(id)){</span>
+<span class="fc" id="L27">            throw new DuplicityValueException(THE_FLIGHT_ALREADY_EXIST);</span>
         }
-<span class="nc" id="L29">    }</span>
+<span class="fc" id="L29">    }</span>
 
     public void validateTimeCalendar(long time){
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        if(!flightRepository.isValidateTime(time)){</span>
-<span class="nc" id="L33">            throw new InvalidTimeException(THE_FLIGHT_TIME_IS_INVALID_IN_THE_CALENDAR);</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if(!flightRepository.isValidateTime(time)){</span>
+<span class="fc" id="L33">            throw new InvalidTimeException(THE_FLIGHT_TIME_IS_INVALID_IN_THE_CALENDAR);</span>
         }
-<span class="nc" id="L35">    }</span>
+<span class="fc" id="L35">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
