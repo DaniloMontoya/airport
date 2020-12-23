@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 
 import static org.junit.Assert.fail;
 
-public class BaseTest {
+public class BasePrueba {
 
     private static final String PERO_FUE_LANZADA = " Pero fue lanzada ";
     private static final String SE_ESPERABA_LA_EXCEPCION = "Se esperaba la excepcion ";

@@ -3,7 +3,7 @@ package co.com.ceiba.airport.infrastructure.persistence.builder;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.infrastructure.persistence.entities.FlightEntity;
 
-public class FlightBuilder {
+public final class FlightBuilder {
 
     private FlightBuilder(){}
 

@@ -1,12 +1,12 @@
-co/com/ceiba/airport/domain/BaseTest.java
- co.com.ceiba.airport.domain.BaseTest
- co.com.ceiba.airport.domain.BaseTest$Thunk
 co/com/ceiba/airport/infraestructure/FlightQueryControllerTest.java
  co.com.ceiba.airport.infraestructure.FlightQueryControllerTest
 co/com/ceiba/airport/AirportApplicationTests.java
  co.com.ceiba.airport.AirportApplicationTests
 co/com/ceiba/airport/domain/services/CreateFlightServiceTest.java
  co.com.ceiba.airport.domain.services.CreateFlightServiceTest
+co/com/ceiba/airport/domain/BasePrueba.java
+ co.com.ceiba.airport.domain.BasePrueba
+ co.com.ceiba.airport.domain.BasePrueba$Thunk
 co/com/ceiba/airport/domain/services/UpdateFlightServiceTest.java
  co.com.ceiba.airport.domain.services.UpdateFlightServiceTest
 co/com/ceiba/airport/domain/services/DeleteFlightServiceTest.java

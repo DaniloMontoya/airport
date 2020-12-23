@@ -8,7 +8,6 @@ import co.com.ceiba.airport.infrastructure.persistence.repositories.jpa.FlightJP
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -18,14 +17,8 @@ public class FlightPersitenceRepository implements FlightRepository {
 
     private static final long FIVE_MINUTE_UNIXTIMESTAMP = 300;
 
-    private EntityManager entityManager;
-
     @Autowired
     FlightJPARepository flightJPARepository;
-
-    public FlightPersitenceRepository(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
 
     @Override
     public Flight getFlight(String id) {

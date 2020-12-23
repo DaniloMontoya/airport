@@ -1,6 +1,6 @@
 package co.com.ceiba.airport.domain.services;
 
-import co.com.ceiba.airport.domain.BaseTest;
+import co.com.ceiba.airport.domain.BasePrueba;
 import co.com.ceiba.airport.domain.exceptions.NotExistException;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
@@ -11,10 +11,10 @@ import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class GetFlightServiceTest {
+class GetFlightServiceTest {
 
     @Test
-    public void getFlightByIdTest(){
+    void getFlightByIdTest(){
         //arrange
         FlightTestDataBuilder flightTestDataBuilder = new FlightTestDataBuilder();
         flightTestDataBuilder.conId("London-123456789");
@@ -30,7 +30,7 @@ public class GetFlightServiceTest {
     }
 
     @Test
-    public void validateFlightDoesnotExistTest(){
+    void validateFlightDoesnotExistTest(){
         //arrange
         FlightTestDataBuilder flightTestDataBuilder = new FlightTestDataBuilder();
         flightTestDataBuilder.conId("London-123456789");
@@ -39,7 +39,7 @@ public class GetFlightServiceTest {
         when(flightRepository.isExiste(flight.getId())).thenReturn(false);
         GetFlightService getFlightService = new GetFlightService(flightRepository);
         //act - assert
-        BaseTest.assertThrows(() -> getFlightService.run(flight.getId()), NotExistException.class, "The flight does not exist");
+        BasePrueba.assertThrows(() -> getFlightService.run(flight.getId()), NotExistException.class, "The flight does not exist");
     }
 
 }

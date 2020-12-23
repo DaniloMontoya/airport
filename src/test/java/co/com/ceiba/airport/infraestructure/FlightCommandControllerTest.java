@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
 @SpringBootTest
-public class FlightCommandControllerTest {
+class FlightCommandControllerTest {
 
     @Autowired
     private MockMvc mvc;
@@ -31,7 +31,7 @@ public class FlightCommandControllerTest {
 
 
     @Test
-    public void createFlightTest() throws Exception{
+    void createFlightTest() throws Exception{
         FlightCommand flightCommand = new FlightCommand(null, 1608417400, "Barcelona", 181.03f, false);
         mvc.perform(MockMvcRequestBuilders
                 .post("/flight/create")
@@ -44,7 +44,7 @@ public class FlightCommandControllerTest {
 
 
     @Test
-    public void updateFlightTest() throws Exception{
+    void updateFlightTest() throws Exception{
         FlightCommand flightCommand = new FlightCommand("Madird-1608414400", 1608416400, "Madrid", 181.03f, false);
         mvc.perform(MockMvcRequestBuilders
                 .put("/flight/update")
@@ -56,7 +56,7 @@ public class FlightCommandControllerTest {
     }
 
     @Test
-    public void deleteFlightTest() throws Exception{
+    void deleteFlightTest() throws Exception{
         FlightCommand flightCommand = new FlightTestDataBuilder().buildCommand();
         mvc.perform(MockMvcRequestBuilders
                 .delete("/flight/delete/{id}", "Lisboa-1608520500")

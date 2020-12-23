@@ -12,10 +12,10 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetAllFlightServiceTest {
+class GetAllFlightServiceTest {
 
     @Test
-    public void getAllFlightTest(){
+    void getAllFlightTest(){
         //arrange
         FlightTestDataBuilder flightTestDataBuilder = new FlightTestDataBuilder();
         flightTestDataBuilder.conId("London-123456789");

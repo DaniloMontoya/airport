@@ -1,6 +1,6 @@
 package co.com.ceiba.airport.domain.services;
 
-import co.com.ceiba.airport.domain.BaseTest;
+import co.com.ceiba.airport.domain.BasePrueba;
 import co.com.ceiba.airport.domain.exceptions.DuplicityValueException;
 import co.com.ceiba.airport.domain.exceptions.InvalidTimeException;
 import co.com.ceiba.airport.domain.models.entities.Flight;
@@ -12,10 +12,10 @@ import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class CreateFlightServiceTest {
+class CreateFlightServiceTest {
 
     @Test
-    public void createFlightTest(){
+    void createFlightTest(){
         //arrange
         FlightTestDataBuilder flightTestDataBuilder = new FlightTestDataBuilder();
         flightTestDataBuilder.conId("London-123456789");
@@ -34,7 +34,7 @@ public class CreateFlightServiceTest {
     }
 
     @Test
-    public void validatePreviousFlightExistTest() {
+    void validatePreviousFlightExistTest() {
         //arrange
         FlightTestDataBuilder flightTestDataBuilder = new FlightTestDataBuilder();
         Flight flight = flightTestDataBuilder.build();
@@ -43,11 +43,11 @@ public class CreateFlightServiceTest {
         CreateFlightService createFlightService = new CreateFlightService(flightRepository);
 
         //act - assert
-        BaseTest.assertThrows(() -> createFlightService.run(flight), DuplicityValueException.class, "The flight already exist");
+        BasePrueba.assertThrows(() -> createFlightService.run(flight), DuplicityValueException.class, "The flight already exist");
     }
 
     @Test
-    public void validateTimeCalendar5MinTest(){
+    void validateTimeCalendar5MinTest(){
         //arrange
         FlightTestDataBuilder flightTestDataBuilder = new FlightTestDataBuilder();
         Flight flight = flightTestDataBuilder.build();
@@ -58,7 +58,7 @@ public class CreateFlightServiceTest {
         CreateFlightService createFlightService = new CreateFlightService(flightRepository);
 
         //act - assert
-        BaseTest.assertThrows(() -> createFlightService.run(flight), InvalidTimeException.class, "The flight time is invalid in the calendar");
+        BasePrueba.assertThrows(() -> createFlightService.run(flight), InvalidTimeException.class, "The flight time is invalid in the calendar");
     }
 
 

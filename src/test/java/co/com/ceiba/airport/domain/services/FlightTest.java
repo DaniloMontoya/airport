@@ -5,7 +5,7 @@ import co.com.ceiba.airport.testdatabuilder.FlightTestDataBuilder;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-public class FlightTest {
+class FlightTest {
 
     private static final long FECHA_HORA_SALIDA = 1608330700;
     private static final String CIUDAD_DE_LLEGADA = "Madrid";
@@ -13,7 +13,7 @@ public class FlightTest {
     private static final boolean ES_REPOGRAMADO = false;
 
     @Test
-    public void createFlight(){
+    void createFlight(){
         //arrange
         FlightTestDataBuilder flightTestDataBuilder = new FlightTestDataBuilder()
                 .conHoraDeSalida(FECHA_HORA_SALIDA)

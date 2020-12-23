@@ -1,21 +1,17 @@
 package co.com.ceiba.airport.domain.services;
 
 
-import co.com.ceiba.airport.domain.BaseTest;
+import co.com.ceiba.airport.domain.BasePrueba;
 import co.com.ceiba.airport.domain.exceptions.NotExistException;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.mockito.stubbing.OngoingStubbing;
-
-import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 
-public class DeleteFlightServiceTest {
+class DeleteFlightServiceTest {
 
     @Test
-    public void deleteFlightTest(){
+    void deleteFlightTest(){
         //arrange
         String id = "London-123456789";
         FlightRepository flightRepository = mock(FlightRepository.class);
@@ -27,18 +23,13 @@ public class DeleteFlightServiceTest {
     }
 
     @Test
-    public void validatePreviousFlightDoesnotExistTest(){
+    void validatePreviousFlightDoesnotExistTest(){
         //arrange
         String id = "London-123456789";
         FlightRepository flightRepository = mock(FlightRepository.class);
         when(flightRepository.isExiste(id)).thenReturn(false);
         DeleteFlightService deleteFlightService = new DeleteFlightService(flightRepository);
         //act - assert
-        BaseTest.assertThrows(() -> deleteFlightService.run(id), NotExistException.class, "The flight does not exist");
+        BasePrueba.assertThrows(() -> deleteFlightService.run(id), NotExistException.class, "The flight does not exist");
     }
-
-
-
-
-
 }

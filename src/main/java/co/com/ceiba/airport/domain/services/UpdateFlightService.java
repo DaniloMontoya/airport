@@ -1,12 +1,9 @@
 package co.com.ceiba.airport.domain.services;
 
-import co.com.ceiba.airport.domain.exceptions.DuplicityValueException;
 import co.com.ceiba.airport.domain.exceptions.NotExistException;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.exceptions.InvalidTimeException;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
-
-import java.util.List;
 
 public class UpdateFlightService {
 

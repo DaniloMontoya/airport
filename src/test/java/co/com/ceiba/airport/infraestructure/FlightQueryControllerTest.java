@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
 @SpringBootTest
-public class FlightQueryControllerTest {
+class FlightQueryControllerTest {
 
     @Autowired
     private MockMvc mvc;
@@ -27,7 +27,7 @@ public class FlightQueryControllerTest {
     private ObjectMapper objectMapper;
 
     @Test
-    public void getAllTest() throws Exception{
+    void getAllTest() throws Exception{
         mvc.perform(MockMvcRequestBuilders
                 .get("/flight/getAll")
                 .accept(MediaType.APPLICATION_JSON))
@@ -37,13 +37,12 @@ public class FlightQueryControllerTest {
     }
 
     @Test
-    public void getFlightByIdTest() throws Exception{
+    void getFlightByIdTest() throws Exception{
         mvc.perform(MockMvcRequestBuilders
                 .get("/flight/getFlightById/{id}", "Medellin-1608320500")
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").value("Medellin-1608320500"));
-
     }
 }

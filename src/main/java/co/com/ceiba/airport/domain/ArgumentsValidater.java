@@ -2,7 +2,7 @@ package co.com.ceiba.airport.domain;
 
 import co.com.ceiba.airport.domain.exceptions.MandatoryValueException;
 
-public class ArgumentsValidater {
+public final class ArgumentsValidater {
 
     private ArgumentsValidater() {}
 

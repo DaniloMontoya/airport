@@ -5,7 +5,6 @@ import co.com.ceiba.airport.application.command.FlightCommand;
 import co.com.ceiba.airport.application.command.handler.CreateFlighHandler;
 import co.com.ceiba.airport.application.command.handler.DeleteFlightHandler;
 import co.com.ceiba.airport.application.command.handler.UpdateFlightHandler;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,26 +17,26 @@ public class FlightCommandContoller {
     private final CreateFlighHandler createFlighHandler;
     private final DeleteFlightHandler deleteFlightHandler;
 
-<span class="fc" id="L21">    public FlightCommandContoller(UpdateFlightHandler updateFlightHandler, CreateFlighHandler createFlighHandler, DeleteFlightHandler deleteFlightHandler) {</span>
-<span class="fc" id="L22">        this.updateFlightHandler = updateFlightHandler;</span>
-<span class="fc" id="L23">        this.createFlighHandler = createFlighHandler;</span>
-<span class="fc" id="L24">        this.deleteFlightHandler = deleteFlightHandler;</span>
-<span class="fc" id="L25">    }</span>
+<span class="fc" id="L20">    public FlightCommandContoller(UpdateFlightHandler updateFlightHandler, CreateFlighHandler createFlighHandler, DeleteFlightHandler deleteFlightHandler) {</span>
+<span class="fc" id="L21">        this.updateFlightHandler = updateFlightHandler;</span>
+<span class="fc" id="L22">        this.createFlighHandler = createFlighHandler;</span>
+<span class="fc" id="L23">        this.deleteFlightHandler = deleteFlightHandler;</span>
+<span class="fc" id="L24">    }</span>
 
     @PostMapping(&quot;/create&quot;)
     public CommandResponse&lt;String&gt; create(@Valid @RequestBody FlightCommand flightCommand){
-<span class="fc" id="L29">        return createFlighHandler.run(flightCommand);</span>
+<span class="fc" id="L28">        return createFlighHandler.run(flightCommand);</span>
     }
 
     @PutMapping(&quot;/update&quot;)
     public void update(@Valid @RequestBody FlightCommand flightCommand){
-<span class="fc" id="L34">        updateFlightHandler.run(flightCommand);</span>
-<span class="fc" id="L35">    }</span>
+<span class="fc" id="L33">        updateFlightHandler.run(flightCommand);</span>
+<span class="fc" id="L34">    }</span>
 
     @DeleteMapping(&quot;/delete/{id}&quot;)
     public void delete(@PathVariable(name = &quot;id&quot;) String id){
-<span class="fc" id="L39">        deleteFlightHandler.run(id);</span>
-<span class="fc" id="L40">    }</span>
+<span class="fc" id="L38">        deleteFlightHandler.run(id);</span>
+<span class="fc" id="L39">    }</span>
 
 
 }

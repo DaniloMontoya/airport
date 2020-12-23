@@ -5,7 +5,6 @@ import co.com.ceiba.airport.domain.models.entities.Flight;
 import org.springframework.stereotype.Component;
 
 import java.util.Calendar;
-import java.util.Date;
 
 @Component
 public class FlightFabric {
