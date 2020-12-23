@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.ceiba.airport.domain.services.GetFlightServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-12-23T16:40:34" hostname="LUIS-MONTES" time="0.005">
+<testsuite name="co.com.ceiba.airport.domain.services.GetFlightServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-12-23T17:36:07" hostname="LUIS-MONTES" time="0.005">
   <properties/>
   <testcase name="getFlightByIdTest()" classname="co.com.ceiba.airport.domain.services.GetFlightServiceTest" time="0.002"/>
   <testcase name="validateFlightDoesnotExistTest()" classname="co.com.ceiba.airport.domain.services.GetFlightServiceTest" time="0.002"/>
