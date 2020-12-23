@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.ceiba.airport.domain.services.CreateFlightServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-12-23T12:57:29" hostname="LUIS-MONTES" time="0.354">
+<testsuite name="co.com.ceiba.airport.domain.services.CreateFlightServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-12-23T13:16:01" hostname="LUIS-MONTES" time="0.232">
   <properties/>
-  <testcase name="validateTimeCalendar5MinTest()" classname="co.com.ceiba.airport.domain.services.CreateFlightServiceTest" time="0.348"/>
+  <testcase name="validateTimeCalendar5MinTest()" classname="co.com.ceiba.airport.domain.services.CreateFlightServiceTest" time="0.227"/>
   <testcase name="createFlightTest()" classname="co.com.ceiba.airport.domain.services.CreateFlightServiceTest" time="0.002"/>
-  <testcase name="validatePreviousFlightExistTest()" classname="co.com.ceiba.airport.domain.services.CreateFlightServiceTest" time="0.002"/>
+  <testcase name="validatePreviousFlightExistTest()" classname="co.com.ceiba.airport.domain.services.CreateFlightServiceTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
