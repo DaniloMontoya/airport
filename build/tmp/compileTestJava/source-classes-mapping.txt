@@ -1,22 +1,22 @@
-co/com/ceiba/airport/domain/services/UpdateFlightServiceTest.java
- co.com.ceiba.airport.domain.services.UpdateFlightServiceTest
+co/com/ceiba/airport/infraestructure/FlightQueryControllerTest.java
+ co.com.ceiba.airport.infraestructure.FlightQueryControllerTest
 co/com/ceiba/airport/AirportApplicationTests.java
  co.com.ceiba.airport.AirportApplicationTests
-co/com/ceiba/airport/testdatabuilder/FlightTestDataBuilder.java
- co.com.ceiba.airport.testdatabuilder.FlightTestDataBuilder
+co/com/ceiba/airport/domain/services/CreateFlightServiceTest.java
+ co.com.ceiba.airport.domain.services.CreateFlightServiceTest
 co/com/ceiba/airport/domain/BasePrueba.java
  co.com.ceiba.airport.domain.BasePrueba
  co.com.ceiba.airport.domain.BasePrueba$Thunk
-co/com/ceiba/airport/infraestructure/FlightQueryControllerTest.java
- co.com.ceiba.airport.infraestructure.FlightQueryControllerTest
-co/com/ceiba/airport/domain/services/CreateFlightServiceTest.java
- co.com.ceiba.airport.domain.services.CreateFlightServiceTest
+co/com/ceiba/airport/domain/services/UpdateFlightServiceTest.java
+ co.com.ceiba.airport.domain.services.UpdateFlightServiceTest
 co/com/ceiba/airport/domain/services/DeleteFlightServiceTest.java
  co.com.ceiba.airport.domain.services.DeleteFlightServiceTest
 co/com/ceiba/airport/domain/services/GetAllFlightServiceTest.java
  co.com.ceiba.airport.domain.services.GetAllFlightServiceTest
 co/com/ceiba/airport/domain/services/FlightTest.java
  co.com.ceiba.airport.domain.services.FlightTest
+co/com/ceiba/airport/testdatabuilder/FlightTestDataBuilder.java
+ co.com.ceiba.airport.testdatabuilder.FlightTestDataBuilder
 co/com/ceiba/airport/domain/services/GetFlightServiceTest.java
  co.com.ceiba.airport.domain.services.GetFlightServiceTest
 co/com/ceiba/airport/infraestructure/FlightCommandControllerTest.java
