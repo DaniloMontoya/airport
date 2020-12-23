@@ -24,13 +24,8 @@ public class FlightPersitenceRepository implements FlightRepository {
 
     @Override
     public Flight getFlight(String id) {
-        FlightEntity flightEntity;
         Optional flightquery = flightJPARepository.findById(id);
-        if(!flightquery.isPresent()) {
-            throw new NotExistException(THE_FLIGHT_DOESNOT_EXIST);
-        }else{
-            flightEntity = (FlightEntity) flightquery.get();
-        }
+        FlightEntity flightEntity = (FlightEntity) flightquery.get();
         return FlightBuilder.convertToDomain(flightEntity);
     }
 
