@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UpdateFlightService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">airport</a> &gt; <a href="index.source.html" class="el_package">co.com.ceiba.airport.domain.services</a> &gt; <span class="el_source">UpdateFlightService.java</span></div><h1>UpdateFlightService.java</h1><pre class="source lang-java linenums">package co.com.ceiba.airport.domain.services;
+
+import co.com.ceiba.airport.domain.exceptions.DuplicityValueException;
+import co.com.ceiba.airport.domain.exceptions.NotExistException;
+import co.com.ceiba.airport.domain.models.entities.Flight;
+import co.com.ceiba.airport.domain.exceptions.InvalidTimeException;
+import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
+
+import java.util.List;
+
+public class UpdateFlightService {
+
+    private static final String THE_FLIGHT_DOESNOT_EXIST = &quot;The flight does not exist&quot;;
+    private static final String THE_FLIGHT_TIME_IS_INVALID_IN_THE_CALENDAR = &quot;The flight time is invalid in the calendar&quot;;
+    private final FlightRepository flightRepository;
+
+<span class="fc" id="L17">    public UpdateFlightService(FlightRepository flightRepository) {</span>
+<span class="fc" id="L18">        this.flightRepository = flightRepository;</span>
+<span class="fc" id="L19">    }</span>
+
+    public void run(Flight flight){
+<span class="fc" id="L22">        validatePreviousExist(flight);</span>
+<span class="fc" id="L23">        validateTimeCalendar(flight.getTime());</span>
+<span class="fc" id="L24">        this.flightRepository.updateFlight(flight);</span>
+<span class="fc" id="L25">    }</span>
+
+    private void validatePreviousExist(Flight flight) {
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if(!this.flightRepository.isExiste(flight.getId())){</span>
+<span class="fc" id="L29">            throw new NotExistException(THE_FLIGHT_DOESNOT_EXIST);</span>
+        }
+<span class="fc" id="L31">    }</span>
+
+    private void validateTimeCalendar(long time) {
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        if(!flightRepository.isValidateTime(time)){</span>
+<span class="fc" id="L35">            throw new InvalidTimeException(THE_FLIGHT_TIME_IS_INVALID_IN_THE_CALENDAR);</span>
+        }
+<span class="fc" id="L37">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

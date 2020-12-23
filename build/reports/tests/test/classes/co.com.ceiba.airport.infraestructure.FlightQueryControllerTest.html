@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - FlightQueryControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>FlightQueryControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/co.com.ceiba.airport.infraestructure.html">co.com.ceiba.airport.infraestructure</a> &gt; FlightQueryControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.104s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">getAllTest()</td>
+<td class="success">0.064s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getFlightByIdTest()</td>
+<td class="success">0.040s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2020-12-22 14:40:17.474  INFO 12624 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [co.com.ceiba.airport.infraestructure.FlightQueryControllerTest], using SpringBootContextLoader
+2020-12-22 14:40:17.475  INFO 12624 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [co.com.ceiba.airport.infraestructure.FlightQueryControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-12-22 14:40:17.476  INFO 12624 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [co.com.ceiba.airport.infraestructure.FlightQueryControllerTest]: FlightQueryControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-12-22 14:40:17.482  INFO 12624 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration co.com.ceiba.airport.AirportApplication for test class co.com.ceiba.airport.infraestructure.FlightQueryControllerTest
+2020-12-22 14:40:17.485  INFO 12624 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-12-22 14:40:17.485  INFO 12624 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7e03a29c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@13533c89, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@62c9b1bf, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@351d8d7f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5669de02, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5c541732, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@733f014e, org.springframework.test.context.event.EventPublishingTestExecutionListener@2a901c23, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@32114ebd, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4e80224a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@45be6fa5, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6f651235, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@57b9cdc2, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1864270d]
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /flight/getAll
+       Parameters = {}
+          Headers = [Accept:&quot;application/json&quot;]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = co.com.ceiba.airport.infrastructure.controller.FlightQueryController
+           Method = co.com.ceiba.airport.infrastructure.controller.FlightQueryController#getAll()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:&quot;application/json&quot;]
+     Content type = application/json
+             Body = [{&quot;id&quot;:&quot;London-1608404400&quot;,&quot;time&quot;:1608404400,&quot;arrival&quot;:&quot;London&quot;,&quot;cost&quot;:181.03,&quot;reprogrammed&quot;:false},{&quot;id&quot;:&quot;Madird-1608414400&quot;,&quot;time&quot;:1608416400,&quot;arrival&quot;:&quot;Madrid&quot;,&quot;cost&quot;:181.03,&quot;reprogrammed&quot;:true},{&quot;id&quot;:&quot;Medellin-1608320500&quot;,&quot;time&quot;:1608320500,&quot;arrival&quot;:&quot;Medellin&quot;,&quot;cost&quot;:181.03,&quot;reprogrammed&quot;:false},{&quot;id&quot;:&quot;Barcelona-1608417400&quot;,&quot;time&quot;:1608417400,&quot;arrival&quot;:&quot;Barcelona&quot;,&quot;cost&quot;:199.133,&quot;reprogrammed&quot;:false}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /flight/getFlightById/Medellin-1608320500
+       Parameters = {}
+          Headers = [Accept:&quot;application/json&quot;]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = co.com.ceiba.airport.infrastructure.controller.FlightQueryController
+           Method = co.com.ceiba.airport.infrastructure.controller.FlightQueryController#getFlightById(String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:&quot;application/json&quot;]
+     Content type = application/json
+             Body = {&quot;id&quot;:&quot;Medellin-1608320500&quot;,&quot;time&quot;:1608320500,&quot;arrival&quot;:&quot;Medellin&quot;,&quot;cost&quot;:181.03,&quot;reprogrammed&quot;:false}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.7.1</a> at Dec 22, 2020 2:40:18 PM</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+co/com/ceiba/airport/AirportApplication.java
+ co.com.ceiba.airport.AirportApplication
+co/com/ceiba/airport/domain/services/CreateFlightService.java
+ co.com.ceiba.airport.domain.services.CreateFlightService
+co/com/ceiba/airport/application/command/handler/UpdateFlightHandler.java
+ co.com.ceiba.airport.application.command.handler.UpdateFlightHandler
+co/com/ceiba/airport/infrastructure/persistence/repositories/FlightPersitenceRepository.java
+ co.com.ceiba.airport.infrastructure.persistence.repositories.FlightPersitenceRepository
+co/com/ceiba/airport/application/command/CommandResponse.java
+ co.com.ceiba.airport.application.command.CommandResponse
+co/com/ceiba/airport/domain/models/dto/FlightDTO.java
+ co.com.ceiba.airport.domain.models.dto.FlightDTO
+co/com/ceiba/airport/application/command/FlightCommand.java
+ co.com.ceiba.airport.application.command.FlightCommand
+co/com/ceiba/airport/application/command/CommandResponseHandler.java
+ co.com.ceiba.airport.application.command.CommandResponseHandler
+co/com/ceiba/airport/domain/models/entities/Flight.java
+ co.com.ceiba.airport.domain.models.entities.Flight
+co/com/ceiba/airport/infrastructure/controller/FlightQueryController.java
+ co.com.ceiba.airport.infrastructure.controller.FlightQueryController
+co/com/ceiba/airport/infrastructure/persistence/entities/FlightEntity.java
+ co.com.ceiba.airport.infrastructure.persistence.entities.FlightEntity
+co/com/ceiba/airport/application/query/GetFlightByIdHandler.java
+ co.com.ceiba.airport.application.query.GetFlightByIdHandler
+co/com/ceiba/airport/application/command/CommandHandler.java
+ co.com.ceiba.airport.application.command.CommandHandler
+co/com/ceiba/airport/application/command/fabric/FlightFabric.java
+ co.com.ceiba.airport.application.command.fabric.FlightFabric
+co/com/ceiba/airport/domain/services/GetFlightService.java
+ co.com.ceiba.airport.domain.services.GetFlightService
+co/com/ceiba/airport/domain/services/GetAllFlightService.java
+ co.com.ceiba.airport.domain.services.GetAllFlightService
+co/com/ceiba/airport/domain/services/UpdateFlightService.java
+ co.com.ceiba.airport.domain.services.UpdateFlightService
+co/com/ceiba/airport/infrastructure/persistence/repositories/jpa/FlightJPARepository.java
+ co.com.ceiba.airport.infrastructure.persistence.repositories.jpa.FlightJPARepository
+co/com/ceiba/airport/domain/services/DeleteFlightService.java
+ co.com.ceiba.airport.domain.services.DeleteFlightService
+co/com/ceiba/airport/domain/exceptions/DuplicityValueException.java
+ co.com.ceiba.airport.domain.exceptions.DuplicityValueException
+co/com/ceiba/airport/application/command/handler/DeleteFlightHandler.java
+ co.com.ceiba.airport.application.command.handler.DeleteFlightHandler
+co/com/ceiba/airport/application/query/GetAllFlightHandler.java
+ co.com.ceiba.airport.application.query.GetAllFlightHandler
+co/com/ceiba/airport/domain/ports/repositories/FlightRepository.java
+ co.com.ceiba.airport.domain.ports.repositories.FlightRepository
+co/com/ceiba/airport/domain/exceptions/MandatoryValueException.java
+ co.com.ceiba.airport.domain.exceptions.MandatoryValueException
+co/com/ceiba/airport/domain/ArgumentsValidater.java
+ co.com.ceiba.airport.domain.ArgumentsValidater
+co/com/ceiba/airport/domain/exceptions/NotExistException.java
+ co.com.ceiba.airport.domain.exceptions.NotExistException
+co/com/ceiba/airport/infrastructure/persistence/builder/FlightBuilder.java
+ co.com.ceiba.airport.infrastructure.persistence.builder.FlightBuilder
+co/com/ceiba/airport/application/command/handler/CreateFlighHandler.java
+ co.com.ceiba.airport.application.command.handler.CreateFlighHandler
+co/com/ceiba/airport/infrastructure/configuration/BeanService.java
+ co.com.ceiba.airport.infrastructure.configuration.BeanService
+co/com/ceiba/airport/domain/exceptions/InvalidTimeException.java
+ co.com.ceiba.airport.domain.exceptions.InvalidTimeException
+co/com/ceiba/airport/infrastructure/controller/FlightCommandContoller.java
+ co.com.ceiba.airport.infrastructure.controller.FlightCommandContoller
