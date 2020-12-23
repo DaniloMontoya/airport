@@ -1,5 +1,6 @@
 package co.com.ceiba.airport.infrastructure.persistence.repositories;
 
+import co.com.ceiba.airport.domain.exceptions.NotExistException;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import co.com.ceiba.airport.infrastructure.persistence.builder.FlightBuilder;
@@ -15,6 +16,7 @@ import java.util.Optional;
 @Repository
 public class FlightPersitenceRepository implements FlightRepository {
 
+    private static final String THE_FLIGHT_DOESNOT_EXIST = "The flight does not exist";
     private static final long FIVE_MINUTE_UNIXTIMESTAMP = 300;
 
     @Autowired
@@ -22,8 +24,13 @@ public class FlightPersitenceRepository implements FlightRepository {
 
     @Override
     public Flight getFlight(String id) {
+        FlightEntity flightEntity;
         Optional flightquery = flightJPARepository.findById(id);
-        FlightEntity flightEntity = (FlightEntity) flightquery.get();
+        if(!flightquery.isPresent()) {
+            throw new NotExistException(THE_FLIGHT_DOESNOT_EXIST);
+        }else{
+            flightEntity = (FlightEntity) flightquery.get();
+        }
         return FlightBuilder.convertToDomain(flightEntity);
     }
 
