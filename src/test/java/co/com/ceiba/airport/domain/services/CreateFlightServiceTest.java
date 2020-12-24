@@ -14,6 +14,9 @@ import static org.mockito.Mockito.when;
 
 class CreateFlightServiceTest {
 
+    private static final String THE_FLIGHT_ALREADY_EXIST = "The flight already exist";
+    private static final String THE_FLIGHT_TIME_IS_INVALID_IN_THE_CALENDAR = "The flight time is invalid in the calendar";
+
     @Test
     void createFlightTest(){
         //arrange
@@ -43,7 +46,7 @@ class CreateFlightServiceTest {
         CreateFlightService createFlightService = new CreateFlightService(flightRepository);
 
         //act - assert
-        BasePrueba.assertThrows(() -> createFlightService.run(flight), DuplicityValueException.class, "The flight already exist");
+        BasePrueba.assertThrows(() -> createFlightService.run(flight), DuplicityValueException.class, THE_FLIGHT_ALREADY_EXIST);
     }
 
     @Test
@@ -58,7 +61,7 @@ class CreateFlightServiceTest {
         CreateFlightService createFlightService = new CreateFlightService(flightRepository);
 
         //act - assert
-        BasePrueba.assertThrows(() -> createFlightService.run(flight), InvalidTimeException.class, "The flight time is invalid in the calendar");
+        BasePrueba.assertThrows(() -> createFlightService.run(flight), InvalidTimeException.class, THE_FLIGHT_TIME_IS_INVALID_IN_THE_CALENDAR);
     }
 
 
