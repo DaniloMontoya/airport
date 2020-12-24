@@ -5,7 +5,9 @@ import static co.com.ceiba.airport.domain.ArgumentsValidater.validatePositive;
 
 import lombok.Getter;
 
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Getter
 public class Flight {
@@ -24,10 +26,30 @@ public class Flight {
         mandatoryValidate(timeDeparture, IT_IS_NECESSARY_TO_ENTER_THE_TIME);
         mandatoryValidate(arrival, IT_IS_NECESSARY_TO_ENTER_THE_ARRIVAL);
         validatePositive(cost, THE_COST_MUST_BE_GREATER_THAN_ZERO);
-        this.id = id;
+        this.id = generateFlightId(id, timeDeparture, arrival, isReprogrammed);
         this.timeDeparture = timeDeparture;
         this.arrival = arrival;
-        this.cost = cost;
+        this.cost = recalculateCost(cost, timeDeparture, isReprogrammed);
         this.isReprogrammed = isReprogrammed;
+    }
+
+    private String generateFlightId(String id, LocalDateTime localDateTime, String arrival, boolean isReprogrammed) {
+        String newID = id;
+        if (isReprogrammed) {
+            newID = id;
+        }else if(id == null) {
+            newID = arrival + "-" + localDateTime.atZone(ZoneId.of("UTC")).toInstant().toEpochMilli()/1000;
+        }
+        return newID;
+    }
+
+    private float recalculateCost(float cost, LocalDateTime localDateTime, boolean isReprogramed){
+        float costInWeekend = cost;
+        if(!isReprogramed) {
+            if (localDateTime.getDayOfWeek() == DayOfWeek.SATURDAY || localDateTime.getDayOfWeek() == DayOfWeek.SUNDAY) {
+                costInWeekend = cost + cost * 0.1f;
+            }
+        }
+        return costInWeekend;
     }
 }
