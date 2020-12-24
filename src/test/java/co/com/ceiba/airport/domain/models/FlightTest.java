@@ -1,4 +1,4 @@
-package co.com.ceiba.airport.domain.services;
+package co.com.ceiba.airport.domain.models;
 
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.testdatabuilder.FlightTestDataBuilder;
