@@ -4,6 +4,7 @@ import co.com.ceiba.airport.domain.BasePrueba;
 import co.com.ceiba.airport.domain.exceptions.NotExistException;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
+import co.com.ceiba.airport.domain.validators.ValidateExistence;
 import co.com.ceiba.airport.testdatabuilder.FlightTestDataBuilder;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -20,9 +21,10 @@ class GetFlightServiceTest {
         flightTestDataBuilder.conId("London-123456789");
         Flight flight = flightTestDataBuilder.build();
         FlightRepository flightRepository = mock(FlightRepository.class);
-        when(flightRepository.isExiste(flight.getId())).thenReturn(true);
+        ValidateExistence validateExistence = mock(ValidateExistence.class);
+        when(validateExistence.isExist(flight.getId())).thenReturn(true);
         when(flightRepository.getFlight(flight.getId())).thenReturn(flight);
-        GetFlightService getFlightService = new GetFlightService(flightRepository);
+        GetFlightService getFlightService = new GetFlightService(flightRepository, validateExistence);
         //act
         Flight flightReturn = getFlightService.run(flight.getId());
         //assert
@@ -36,8 +38,9 @@ class GetFlightServiceTest {
         flightTestDataBuilder.conId("London-123456789");
         Flight flight = flightTestDataBuilder.build();
         FlightRepository flightRepository = mock(FlightRepository.class);
-        when(flightRepository.isExiste(flight.getId())).thenReturn(false);
-        GetFlightService getFlightService = new GetFlightService(flightRepository);
+        ValidateExistence validateExistence = mock(ValidateExistence.class);
+        when(validateExistence.isExist(flight.getId())).thenReturn(false);
+        GetFlightService getFlightService = new GetFlightService(flightRepository, validateExistence);
         //act - assert
         BasePrueba.assertThrows(() -> getFlightService.run(flight.getId()), NotExistException.class, "The flight does not exist");
     }

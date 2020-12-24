@@ -9,7 +9,6 @@ import co.com.ceiba.airport.infrastructure.persistence.repositories.jpa.FlightJP
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +17,6 @@ import java.util.Optional;
 public class FlightPersitenceRepository implements FlightRepository {
 
     private static final String THE_FLIGHT_DOESNOT_EXIST = "The flight does not exist";
-    private static final int LIMIT_VALIDATE_DATE_IN_MINUTES = 5;
 
     @Autowired
     FlightJPARepository flightJPARepository;
@@ -63,20 +61,5 @@ public class FlightPersitenceRepository implements FlightRepository {
     @Override
     public boolean isExiste(String idFlight) {
         return flightJPARepository.existsById(idFlight);
-    }
-
-    @Override
-    public boolean isValidateTime(LocalDateTime timeDeparture) {
-        boolean isValid = true;
-        LocalDateTime fiveMinutesBefore = timeDeparture.minusMinutes(LIMIT_VALIDATE_DATE_IN_MINUTES);
-        LocalDateTime fiveMinutesAfter = timeDeparture.plusMinutes(LIMIT_VALIDATE_DATE_IN_MINUTES);
-        List<Flight> flightList = getAllFlight();
-        for(Flight flight : flightList){
-            if (flight.getTimeDeparture().isAfter(fiveMinutesBefore) && flight.getTimeDeparture().isBefore(fiveMinutesAfter)){
-                isValid = false;
-                break;
-            }
-        }
-        return isValid;
     }
 }

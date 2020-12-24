@@ -4,6 +4,8 @@ import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import co.com.ceiba.airport.domain.services.CreateFlightService;
 import co.com.ceiba.airport.domain.services.DeleteFlightService;
 import co.com.ceiba.airport.domain.services.UpdateFlightService;
+import co.com.ceiba.airport.domain.validators.ValidateCalendar;
+import co.com.ceiba.airport.domain.validators.ValidateExistence;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,17 +13,17 @@ import org.springframework.context.annotation.Configuration;
 public class BeanService {
 
     @Bean
-    public CreateFlightService createFlightService(FlightRepository flightRepository){
-        return new CreateFlightService(flightRepository);
+    public CreateFlightService createFlightService(FlightRepository flightRepository, ValidateExistence validateExistence, ValidateCalendar validateCalendar){
+        return new CreateFlightService(flightRepository, validateExistence, validateCalendar);
     }
 
     @Bean
-    public UpdateFlightService updateFlightService(FlightRepository flightRepository){
-        return new UpdateFlightService(flightRepository);
+    public UpdateFlightService updateFlightService(FlightRepository flightRepository, ValidateExistence validateExistence, ValidateCalendar validateCalendar){
+        return new UpdateFlightService(flightRepository, validateExistence, validateCalendar);
     }
 
     @Bean
-    public DeleteFlightService deleteFlightService(FlightRepository flightRepository){
-        return new DeleteFlightService(flightRepository);
+    public DeleteFlightService deleteFlightService(FlightRepository flightRepository, ValidateExistence validateExistence){
+        return new DeleteFlightService(flightRepository, validateExistence);
     }
 }

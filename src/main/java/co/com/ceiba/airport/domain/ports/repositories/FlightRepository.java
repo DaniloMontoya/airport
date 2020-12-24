@@ -12,5 +12,4 @@ public interface FlightRepository {
     void updateFlight(Flight flight);
     void deleteFlight(String id);
     boolean isExiste(String idFlight);
-    boolean isValidateTime(LocalDateTime time);
 }
