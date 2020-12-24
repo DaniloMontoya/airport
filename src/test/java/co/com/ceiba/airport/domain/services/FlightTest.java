@@ -5,9 +5,12 @@ import co.com.ceiba.airport.testdatabuilder.FlightTestDataBuilder;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+import java.time.Month;
+
 class FlightTest {
 
-    private static final long FECHA_HORA_SALIDA = 1608330700;
+    private static final LocalDateTime FECHA_HORA_SALIDA = LocalDateTime.of(2020, Month.DECEMBER, 14, 14,0);
     private static final String CIUDAD_DE_LLEGADA = "Madrid";
     private static final float COSTO_DEL_VUELO = 151.03f;
     private static final boolean ES_REPOGRAMADO = false;

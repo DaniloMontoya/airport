@@ -4,7 +4,9 @@ import co.com.ceiba.airport.application.command.FlightCommand;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import org.springframework.stereotype.Component;
 
-import java.util.Calendar;
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Component
 public class FlightFabric {
@@ -19,23 +21,20 @@ public class FlightFabric {
         );
     }
 
-    private String generateFlightId(long time, String arrival, boolean isReprogrammed, String id) {
+    private String generateFlightId(LocalDateTime localDateTime, String arrival, boolean isReprogrammed, String id) {
         String newID;
         if (isReprogrammed) {
             newID = id;
         }else {
-            newID = arrival + "-" + time;
+            newID = arrival + "-" + localDateTime.atZone(ZoneId.of("UTC")).toInstant().toEpochMilli()/1000;
         }
         return newID;
     }
 
-    private float recalculateCost(float cost, long time, boolean isReprogramed){
+    private float recalculateCost(float cost, LocalDateTime localDateTime, boolean isReprogramed){
         float costInWeekend = cost;
         if(!isReprogramed) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(time * 1000);
-            int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-            if (dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY) {
+            if (localDateTime.getDayOfWeek() == DayOfWeek.SATURDAY || localDateTime.getDayOfWeek() == DayOfWeek.SUNDAY) {
                 costInWeekend = cost + cost * 0.1f;
             }
         }

@@ -3,16 +3,19 @@ package co.com.ceiba.airport.testdatabuilder;
 import co.com.ceiba.airport.application.command.FlightCommand;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 
+import java.time.LocalDateTime;
+import java.time.Month;
+
 public class FlightTestDataBuilder {
 
     private static final String ID = "London-1608404400";
-    private static final long FECHA_HORA_SALIDA = 1608406400;
+    private static final LocalDateTime FECHA_HORA_SALIDA = LocalDateTime.of(2020, Month.DECEMBER, 14, 14,0);
     private static final String CIUDAD_DE_LLEGADA = "London";
     private static final float COSTO_DEL_VUELO = 181.03f;
     private static final boolean ES_REPOGRAMADO = false;
 
     private String id;
-    private long time_departures;
+    private LocalDateTime time_departures;
     private String arrival;
     private float cost;
     private boolean isReprogrammed;
@@ -30,8 +33,8 @@ public class FlightTestDataBuilder {
         return this;
     }
 
-    public FlightTestDataBuilder conHoraDeSalida(long time_departures) {
-        this.time_departures = time_departures;
+    public FlightTestDataBuilder conHoraDeSalida(LocalDateTime localDateTime) {
+        this.time_departures = localDateTime;
         return this;
     }
 

@@ -5,6 +5,8 @@ import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.exceptions.InvalidTimeException;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 
+import java.time.LocalDateTime;
+
 public class UpdateFlightService {
 
     private static final String THE_FLIGHT_DOESNOT_EXIST = "The flight does not exist";
@@ -27,8 +29,8 @@ public class UpdateFlightService {
         }
     }
 
-    private void validateTimeCalendar(long time) {
-        if(!flightRepository.isValidateTime(time)){
+    private void validateTimeCalendar(LocalDateTime localDateTime) {
+        if(!flightRepository.isValidateTime(localDateTime)){
             throw new InvalidTimeException(THE_FLIGHT_TIME_IS_INVALID_IN_THE_CALENDAR);
         }
     }

@@ -2,6 +2,7 @@ package co.com.ceiba.airport.domain.ports.repositories;
 
 import co.com.ceiba.airport.domain.models.entities.Flight;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface FlightRepository {
@@ -11,5 +12,5 @@ public interface FlightRepository {
     void updateFlight(Flight flight);
     void deleteFlight(String id);
     boolean isExiste(String idFlight);
-    boolean isValidateTime(long time);
+    boolean isValidateTime(LocalDateTime time);
 }

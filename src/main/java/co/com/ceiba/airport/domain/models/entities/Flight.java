@@ -4,6 +4,8 @@ import static co.com.ceiba.airport.domain.ArgumentsValidater.mandatoryValidate;
 
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+
 @Getter
 public class Flight {
 
@@ -12,12 +14,12 @@ public class Flight {
     private static final String MINIMUM_LENGTH = "El costo debe tener un valor mayor a cero";
 
     private String id;
-    private long timeDeparture;
+    private LocalDateTime timeDeparture;
     private String arrival;
     private float cost;
     private boolean isReprogrammed;
 
-    public Flight(String id, long timeDeparture, String arrival, float cost, boolean isReprogrammed){
+    public Flight(String id, LocalDateTime timeDeparture, String arrival, float cost, boolean isReprogrammed){
         mandatoryValidate(timeDeparture, IT_IS_NECESSARY_TO_ENTER_THE_TIME);
         this.id = id;
         this.timeDeparture = timeDeparture;

@@ -14,6 +14,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.time.LocalDateTime;
+import java.time.Month;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -32,20 +35,26 @@ class FlightCommandControllerTest {
 
     @Test
     void createFlightTest() throws Exception{
-        FlightCommand flightCommand = new FlightCommand(null, 1608417400, "Barcelona", 181.03f, false);
+        FlightCommand flightCommand = new FlightCommand(null,
+                LocalDateTime.of(2020, Month.DECEMBER, 19, 22,36),
+                "Barcelona",
+                181.03f,
+                false);
         mvc.perform(MockMvcRequestBuilders
                 .post("/flight/create")
                 .content(objectMapper.writeValueAsString(flightCommand))
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.value").value("Barcelona-1608417400"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.value").value("Barcelona-1608417360"));
     }
 
 
     @Test
     void updateFlightTest() throws Exception{
-        FlightCommand flightCommand = new FlightCommand("Madird-1608414400", 1608416400, "Madrid", 181.03f, false);
+        FlightCommand flightCommand = new FlightCommand("Madird-1608414400",
+                LocalDateTime.of(2020, Month.DECEMBER, 19, 22,20),
+                "Madrid", 181.03f, false);
         mvc.perform(MockMvcRequestBuilders
                 .put("/flight/update")
                 .content(objectMapper.writeValueAsString(flightCommand))

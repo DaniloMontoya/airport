@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "flight")
@@ -16,7 +17,7 @@ public class FlightEntity {
     private String id;
 
     @Column(nullable = false)
-    private long timeDeparture;
+    private LocalDateTime timeDeparture;
 
     @Column(nullable = false)
     private String arrival;

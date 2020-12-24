@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -16,14 +17,13 @@ public class FlightCommand {
     private String id;
 
     @NotNull(message = "Time is mandatory")
-    @Min(1)
-    private long timeDeparture;
+    private LocalDateTime timeDeparture;
 
     @NotBlank(message = "Arrival is mandatory")
     private String arrival;
 
     @NotNull(message = "Cost is mandatory")
-    @Min(1)
+    @Min(0)
     private float cost;
 
     private boolean isReprogrammed;
