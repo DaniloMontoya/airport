@@ -2,6 +2,7 @@ package co.com.ceiba.airport.domain.services;
 
 import co.com.ceiba.airport.domain.BasePrueba;
 import co.com.ceiba.airport.domain.exceptions.NotExistException;
+import co.com.ceiba.airport.domain.models.dto.FlightDTO;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import co.com.ceiba.airport.domain.validators.ValidateExistence;
@@ -26,7 +27,7 @@ class GetFlightServiceTest {
         when(flightRepository.getFlight(flight.getId())).thenReturn(flight);
         GetFlightService getFlightService = new GetFlightService(flightRepository, validateExistence);
         //act
-        Flight flightReturn = getFlightService.run(flight.getId());
+        FlightDTO flightReturn = getFlightService.run(flight.getId());
         //assert
         Assert.assertEquals(flight.getId(), flightReturn.getId());
     }

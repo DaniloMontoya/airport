@@ -1,5 +1,6 @@
 package co.com.ceiba.airport.domain.services;
 
+import co.com.ceiba.airport.domain.models.dto.FlightDTO;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import co.com.ceiba.airport.testdatabuilder.FlightListTestDataBuilder;
@@ -24,7 +25,7 @@ class GetAllFlightServiceTest {
         when(flightRepository.getAllFlight()).thenReturn(flightListTestDataBuilder.generateFlightList());
         GetAllFlightService getAllFlightService = new GetAllFlightService(flightRepository);
         //act
-        List<Flight> flightList = getAllFlightService.run();
+        List<FlightDTO> flightList = getAllFlightService.run();
         //assert
         Assert.assertEquals(flightList.get(0).getId(), flight.getId());
     }

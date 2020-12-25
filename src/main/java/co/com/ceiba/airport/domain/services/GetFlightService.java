@@ -1,9 +1,11 @@
 package co.com.ceiba.airport.domain.services;
 
 import co.com.ceiba.airport.domain.exceptions.NotExistException;
+import co.com.ceiba.airport.domain.models.dto.FlightDTO;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import co.com.ceiba.airport.domain.validators.ValidateExistence;
+import co.com.ceiba.airport.infrastructure.persistence.builder.FlightBuilder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,9 +21,9 @@ public class GetFlightService {
         this.validateExistence = validateExistence;
     }
 
-    public Flight run(String id){
+    public FlightDTO run(String id){
         validateExist(id);
-        return this.flightRepository.getFlight(id);
+        return FlightBuilder.convertToDTO(this.flightRepository.getFlight(id));
     }
 
     private void validateExist(String id) {

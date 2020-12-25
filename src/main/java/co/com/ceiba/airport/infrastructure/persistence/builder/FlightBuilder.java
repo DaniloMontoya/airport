@@ -1,5 +1,6 @@
 package co.com.ceiba.airport.infrastructure.persistence.builder;
 
+import co.com.ceiba.airport.domain.models.dto.FlightDTO;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.infrastructure.persistence.entities.FlightEntity;
 
@@ -32,5 +33,18 @@ public final class FlightBuilder {
         flightEntity.setCost(flight.getCost());
         flightEntity.setReprogrammed(flight.isReprogrammed());
         return flightEntity;
+    }
+
+    public static FlightDTO convertToDTO(Flight flight){
+        FlightDTO flightDTO = null;
+        if(flight != null){
+            flightDTO = new FlightDTO(
+                    flight.getId(),
+                    flight.getTimeDeparture(),
+                    flight.getArrival(),
+                    flight.getCost(),
+                    flight.isReprogrammed());
+        }
+        return flightDTO;
     }
 }

@@ -2,7 +2,7 @@ package co.com.ceiba.airport.infrastructure.controller;
 
 import co.com.ceiba.airport.application.query.GetAllFlightHandler;
 import co.com.ceiba.airport.application.query.GetFlightByIdHandler;
-import co.com.ceiba.airport.domain.models.entities.Flight;
+import co.com.ceiba.airport.domain.models.dto.FlightDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,12 +23,12 @@ public class FlightQueryController {
     }
 
     @GetMapping("getAll")
-    public List<Flight> getAll(){
+    public List<FlightDTO> getAll(){
         return this.getAllFlightHandler.run();
     }
 
     @GetMapping("getFlightById/{id}")
-    public Flight getFlightById(@PathVariable(name = "id") String id){
+    public FlightDTO getFlightById(@PathVariable(name = "id") String id){
         return this.getFlightByIdHandler.run(id);
     }
 
