@@ -42,10 +42,9 @@ public class FlightCommandContoller {
         deleteFlightHandler.run(id);
     }
 
-    @PutMapping("/setDelay")
-    public void setDelay(@RequestBody LocalDateTime localDateTime){
-        setDelayHandler.run(localDateTime);
-
+    @PutMapping("/setDelay/{hourDelay}")
+    public void setDelay(@PathVariable(name = "hourDelay") int hourDelay){
+        setDelayHandler.run(hourDelay);
     }
 
 

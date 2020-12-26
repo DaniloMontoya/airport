@@ -18,6 +18,7 @@ class DeleteFlightServiceTest {
         FlightRepository flightRepository = mock(FlightRepository.class);
         ValidateExistence validateExistence = mock(ValidateExistence.class);
         when(validateExistence.isExist(id)).thenReturn(true);
+        doNothing().when(flightRepository).deleteFlight(id);
         DeleteFlightService deleteFlightService = new DeleteFlightService(flightRepository, validateExistence);
         //act - assert
         deleteFlightService.run(id);

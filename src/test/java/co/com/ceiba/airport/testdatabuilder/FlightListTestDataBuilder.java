@@ -10,7 +10,7 @@ import java.util.List;
 public class FlightListTestDataBuilder {
 
     public List<Flight> generateFlightList(){
-        LocalDateTime localDateTime = LocalDateTime.of(2020, Month.DECEMBER, 14, 13,30);
+        LocalDateTime localDateTime = LocalDateTime.of(2020, Month.DECEMBER, 29, 13,30);
         List<Flight> flightList = new ArrayList<>();
         FlightTestDataBuilder flightTestDataBuilder = new FlightTestDataBuilder();
         flightTestDataBuilder.conId("London-123456789");
