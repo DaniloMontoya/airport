@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @ControllerAdvice
 public class ErrorHandler extends ResponseEntityExceptionHandler {
 
-    private Logger LOGGER_ERROR = LoggerFactory.getLogger(ErrorHandler.class);
+    private static final Logger LOGGER_ERROR = LoggerFactory.getLogger(ErrorHandler.class);
     private static final String OCURRIO_UN_ERROR_FAVOR_CONTACTAR_AL_ADMINISTRADOR = "Ocurrió un error, favor contactar al administrador.";
     private static final ConcurrentHashMap<String, Integer> CODIGOS_ESTADO = new ConcurrentHashMap<>();
 

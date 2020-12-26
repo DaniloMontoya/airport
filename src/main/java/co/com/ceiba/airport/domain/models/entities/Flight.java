@@ -26,14 +26,14 @@ public class Flight {
         mandatoryValidate(timeDeparture, IT_IS_NECESSARY_TO_ENTER_THE_TIME);
         mandatoryValidate(arrival, IT_IS_NECESSARY_TO_ENTER_THE_ARRIVAL);
         validatePositive(cost, THE_COST_MUST_BE_GREATER_THAN_ZERO);
-        this.id = generateFlightId(id, timeDeparture, arrival, isReprogrammed);
+        this.id = generateFlightId(id, timeDeparture, arrival);
         this.timeDeparture = timeDeparture;
         this.arrival = arrival;
         this.cost = recalculateCost(cost, timeDeparture, isReprogrammed);
         this.isReprogrammed = isReprogrammed;
     }
 
-    private String generateFlightId(String id, LocalDateTime localDateTime, String arrival, boolean isReprogrammed) {
+    private String generateFlightId(String id, LocalDateTime localDateTime, String arrival) {
         String newID = id;
         if(id == null) {
             newID = arrival + "-" + localDateTime.atZone(ZoneId.of("UTC")).toInstant().toEpochMilli()/1000;
@@ -43,7 +43,7 @@ public class Flight {
 
     private float recalculateCost(float cost, LocalDateTime localDateTime, boolean isReprogramed){
         float costInWeekend = cost;
-        if(!isReprogramed && localDateTime.getDayOfWeek() == DayOfWeek.SATURDAY || localDateTime.getDayOfWeek() == DayOfWeek.SUNDAY) {
+        if(!isReprogramed && (localDateTime.getDayOfWeek() == DayOfWeek.SATURDAY || localDateTime.getDayOfWeek() == DayOfWeek.SUNDAY)) {
               costInWeekend = cost + cost * 0.1f;
         }
         return costInWeekend;
