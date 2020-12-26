@@ -6,7 +6,6 @@ import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import co.com.ceiba.airport.domain.services.currentDate.GetCurrentDate;
 
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class SetDelayService {

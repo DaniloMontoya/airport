@@ -6,7 +6,6 @@ import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import co.com.ceiba.airport.domain.validators.ValidateCalendar;
 import co.com.ceiba.airport.domain.validators.ValidateExistence;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
