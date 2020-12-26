@@ -30,7 +30,7 @@ public class BeanService {
     }
 
     @Bean
-    public DeleteFlightService deleteFlightService(FlightRepository flightRepository, ValidateExistence validateExistence){
-        return new DeleteFlightService(flightRepository, validateExistence);
+    public DeleteFlightService deleteFlightService(FlightRepository flightRepository, ValidateExistence validateExistence, GetCurrentDate getCurrentDate){
+        return new DeleteFlightService(flightRepository, validateExistence, getCurrentDate);
     }
 }

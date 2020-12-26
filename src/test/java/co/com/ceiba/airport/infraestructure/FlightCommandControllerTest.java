@@ -72,8 +72,6 @@ class FlightCommandControllerTest {
 
     @Test
     void setDelay() throws Exception{
-        GetCurrentDate getCurrentDate = mock(GetCurrentDate.class);
-        when(getCurrentDate.getCurrentDate()).thenReturn(CURRENT_DATE);
         mvc.perform(MockMvcRequestBuilders
                 .put("/flight/setDelay/{hourDelay}", 2)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -84,9 +82,11 @@ class FlightCommandControllerTest {
 
     @Test
     void deleteFlightTest() throws Exception{
+        GetCurrentDate getCurrentDate = mock(GetCurrentDate.class);
+        when(getCurrentDate.getCurrentDate()).thenReturn(CURRENT_DATE);
         FlightCommand flightCommand = new FlightTestDataBuilder().buildCommand();
         mvc.perform(MockMvcRequestBuilders
-                .delete("/flight/delete/{id}", "Lisboa-1608520500")
+                .delete("/flight/delete/{id}", "Chicago-1608540500")
                 .content(objectMapper.writeValueAsString(flightCommand))
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
