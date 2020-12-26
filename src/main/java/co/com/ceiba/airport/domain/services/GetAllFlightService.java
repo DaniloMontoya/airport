@@ -4,7 +4,6 @@ import co.com.ceiba.airport.domain.models.dto.FlightDTO;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import co.com.ceiba.airport.infrastructure.persistence.builder.FlightBuilder;
-import co.com.ceiba.airport.infrastructure.persistence.entities.FlightEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 

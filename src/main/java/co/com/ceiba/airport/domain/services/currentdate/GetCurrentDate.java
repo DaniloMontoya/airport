@@ -1,4 +1,4 @@
-package co.com.ceiba.airport.domain.services.currentDate;
+package co.com.ceiba.airport.domain.services.currentdate;
 
 import org.springframework.stereotype.Component;
 

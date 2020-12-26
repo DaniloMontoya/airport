@@ -2,7 +2,6 @@ package co.com.ceiba.airport.domain.services;
 
 import co.com.ceiba.airport.domain.exceptions.NotExistException;
 import co.com.ceiba.airport.domain.models.dto.FlightDTO;
-import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import co.com.ceiba.airport.domain.validators.ValidateExistence;
 import co.com.ceiba.airport.infrastructure.persistence.builder.FlightBuilder;

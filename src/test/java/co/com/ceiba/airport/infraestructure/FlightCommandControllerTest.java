@@ -1,7 +1,7 @@
 package co.com.ceiba.airport.infraestructure;
 
 import co.com.ceiba.airport.application.command.FlightCommand;
-import co.com.ceiba.airport.domain.services.currentDate.GetCurrentDate;
+import co.com.ceiba.airport.domain.services.currentdate.GetCurrentDate;
 import co.com.ceiba.airport.testdatabuilder.FlightTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;

@@ -5,7 +5,7 @@ import co.com.ceiba.airport.domain.services.CreateFlightService;
 import co.com.ceiba.airport.domain.services.DeleteFlightService;
 import co.com.ceiba.airport.domain.services.SetDelayService;
 import co.com.ceiba.airport.domain.services.UpdateFlightService;
-import co.com.ceiba.airport.domain.services.currentDate.GetCurrentDate;
+import co.com.ceiba.airport.domain.services.currentdate.GetCurrentDate;
 import co.com.ceiba.airport.domain.validators.ValidateCalendar;
 import co.com.ceiba.airport.domain.validators.ValidateExistence;
 import org.springframework.context.annotation.Bean;

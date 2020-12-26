@@ -3,7 +3,6 @@ package co.com.ceiba.airport.domain.services;
 import co.com.ceiba.airport.domain.exceptions.NotExistException;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
 import co.com.ceiba.airport.domain.validators.ValidateExistence;
-import org.springframework.stereotype.Component;
 
 public class DeleteFlightService {
 

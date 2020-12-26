@@ -4,7 +4,7 @@ import co.com.ceiba.airport.domain.BasePrueba;
 import co.com.ceiba.airport.domain.exceptions.InvalidTimeException;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
-import co.com.ceiba.airport.domain.services.currentDate.GetCurrentDate;
+import co.com.ceiba.airport.domain.services.currentdate.GetCurrentDate;
 import co.com.ceiba.airport.testdatabuilder.FlightListTestDataBuilder;
 import co.com.ceiba.airport.testdatabuilder.FlightTestDataBuilder;
 import org.junit.jupiter.api.Test;

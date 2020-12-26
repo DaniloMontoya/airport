@@ -3,7 +3,7 @@ package co.com.ceiba.airport.domain.services;
 import co.com.ceiba.airport.domain.exceptions.InvalidTimeException;
 import co.com.ceiba.airport.domain.models.entities.Flight;
 import co.com.ceiba.airport.domain.ports.repositories.FlightRepository;
-import co.com.ceiba.airport.domain.services.currentDate.GetCurrentDate;
+import co.com.ceiba.airport.domain.services.currentdate.GetCurrentDate;
 
 import java.time.LocalDateTime;
 import java.util.List;

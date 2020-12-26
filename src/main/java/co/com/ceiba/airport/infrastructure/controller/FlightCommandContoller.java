@@ -9,7 +9,6 @@ import co.com.ceiba.airport.application.command.handler.UpdateFlightHandler;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/flight")

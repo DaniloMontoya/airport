@@ -35,9 +35,7 @@ public class Flight {
 
     private String generateFlightId(String id, LocalDateTime localDateTime, String arrival, boolean isReprogrammed) {
         String newID = id;
-        if (isReprogrammed) {
-            newID = id;
-        }else if(id == null) {
+        if(id == null) {
             newID = arrival + "-" + localDateTime.atZone(ZoneId.of("UTC")).toInstant().toEpochMilli()/1000;
         }
         return newID;
@@ -45,10 +43,8 @@ public class Flight {
 
     private float recalculateCost(float cost, LocalDateTime localDateTime, boolean isReprogramed){
         float costInWeekend = cost;
-        if(!isReprogramed) {
-            if (localDateTime.getDayOfWeek() == DayOfWeek.SATURDAY || localDateTime.getDayOfWeek() == DayOfWeek.SUNDAY) {
-                costInWeekend = cost + cost * 0.1f;
-            }
+        if(!isReprogramed && localDateTime.getDayOfWeek() == DayOfWeek.SATURDAY || localDateTime.getDayOfWeek() == DayOfWeek.SUNDAY) {
+              costInWeekend = cost + cost * 0.1f;
         }
         return costInWeekend;
     }

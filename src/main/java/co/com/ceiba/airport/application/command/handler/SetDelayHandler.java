@@ -4,9 +4,6 @@ import co.com.ceiba.airport.domain.services.SetDelayService;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Clock;
-import java.time.LocalDateTime;
-
 @Component
 public class SetDelayHandler {
 
