@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SetDelayService {
 
-    private static final String HOUR_DELAY_MUST_GREATER_THAN_ZERO = "Hour delay must greater than zero";
+    private static final String HOUR_DELAY_MUST_GREATER_THAN_ZERO = "Las horas de cierre deben ser mayores que cero.";
 
     private final FlightRepository flightRepository;
     private final GetCurrentDate getCurrentDate;

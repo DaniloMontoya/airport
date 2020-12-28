@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 
 public class UpdateFlightService {
 
-    private static final String THE_FLIGHT_DOESNOT_EXIST = "The flight does not exist";
-    private static final String THE_FLIGHT_TIME_IS_INVALID_IN_THE_CALENDAR = "The flight time is invalid in the calendar";
+    private static final String THE_FLIGHT_DOESNOT_EXIST = "El vuelo ha actualizar no existe.";
+    private static final String THE_FLIGHT_TIME_IS_INVALID_IN_THE_CALENDAR = "No es posible actualizar el vuelo con la fecha y hora programada.";
     private final FlightRepository flightRepository;
     private final ValidateExistence validateExistence;
     private final ValidateCalendar validateCalendar;

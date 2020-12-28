@@ -49,7 +49,7 @@ class SetDelayServiceTest {
         doNothing().when(flightRepository).updateFlight(flight);
         SetDelayService setDelayService = new SetDelayService(flightRepository, getCurrentDate);
         //act - assert
-        BasePrueba.assertThrows(() -> setDelayService.run(hour), InvalidTimeException.class, "Hour delay must greater than zero");
+        BasePrueba.assertThrows(() -> setDelayService.run(hour), InvalidTimeException.class, "Las horas de cierre deben ser mayores que cero.");
     }
 
 }

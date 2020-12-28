@@ -15,8 +15,8 @@ import static org.mockito.Mockito.*;
 
 class CreateFlightServiceTest {
 
-    private static final String THE_FLIGHT_ALREADY_EXIST = "The flight already exist";
-    private static final String THE_FLIGHT_TIME_IS_INVALID_IN_THE_CALENDAR = "The flight time is invalid in the calendar";
+    private static final String THE_FLIGHT_ALREADY_EXIST = "El vuelo ya existe";
+    private static final String THE_FLIGHT_TIME_IS_INVALID_IN_THE_CALENDAR = "La hora a la que se programó el vuelo es inválida";
 
     @Test
     void createFlightTest(){

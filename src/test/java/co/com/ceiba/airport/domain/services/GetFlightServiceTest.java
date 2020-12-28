@@ -43,7 +43,7 @@ class GetFlightServiceTest {
         when(validateExistence.isExist(flight.getId())).thenReturn(false);
         GetFlightService getFlightService = new GetFlightService(flightRepository, validateExistence);
         //act - assert
-        BasePrueba.assertThrows(() -> getFlightService.run(flight.getId()), NotExistException.class, "The flight does not exist");
+        BasePrueba.assertThrows(() -> getFlightService.run(flight.getId()), NotExistException.class, "El vuelo consultado no existe.");
     }
 
 }

@@ -48,7 +48,7 @@ class DeleteFlightServiceTest {
         when(validateExistence.isExist(id)).thenReturn(false);
         DeleteFlightService deleteFlightService = new DeleteFlightService(flightRepository, validateExistence, getCurrentDate);
         //act - assert
-        BasePrueba.assertThrows(() -> deleteFlightService.run(id), NotExistException.class, "The flight does not exist");
+        BasePrueba.assertThrows(() -> deleteFlightService.run(id), NotExistException.class, "El vuelo a eliminar no existe.");
     }
 
     @Test
@@ -66,6 +66,6 @@ class DeleteFlightServiceTest {
         when(flightRepository.getFlight(flight.getId())).thenReturn(flight);
         DeleteFlightService deleteFlightService = new DeleteFlightService(flightRepository, validateExistence, getCurrentDate);
         //act - assert
-        BasePrueba.assertThrows(() -> deleteFlightService.run(flight.getId()), InvalidTimeException.class, "It's not possible delete flight for limit date");
+        BasePrueba.assertThrows(() -> deleteFlightService.run(flight.getId()), InvalidTimeException.class, "No es posible eliminar este vuelo porque está programado dentro del rango de un año.");
     }
 }

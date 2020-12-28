@@ -46,7 +46,7 @@ class UpdateFlightServiceTest {
         UpdateFlightService updateFlightService = new UpdateFlightService(flightRepository, validateExistence, validateCalendar);
 
         //act - assert
-        BasePrueba.assertThrows(() -> updateFlightService.run(flight), NotExistException.class, "The flight does not exist");
+        BasePrueba.assertThrows(() -> updateFlightService.run(flight), NotExistException.class, "El vuelo ha actualizar no existe.");
     }
 
     @Test
@@ -61,7 +61,7 @@ class UpdateFlightServiceTest {
         when(validateCalendar.isValidDateDepartures(flight.getTimeDeparture())).thenReturn(false);
         UpdateFlightService updateFlightService = new UpdateFlightService(flightRepository, validateExistence, validateCalendar);
         //act - assert
-        BasePrueba.assertThrows(() -> updateFlightService.run(flight), InvalidTimeException.class, "The flight time is invalid in the calendar");
+        BasePrueba.assertThrows(() -> updateFlightService.run(flight), InvalidTimeException.class, "No es posible actualizar el vuelo con la fecha y hora programada.");
     }
 
 }

@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 
 public class DeleteFlightService {
 
-    private static final String THE_FLIGHT_DOESNOT_EXIST = "The flight does not exist";
-    private static final String NOT_POSSIBLE_DELETE_FLIGHT_FOR_LIMIT_DATE = "It's not possible delete flight for limit date";
+    private static final String THE_FLIGHT_DOESNOT_EXIST = "El vuelo a eliminar no existe.";
+    private static final String NOT_POSSIBLE_DELETE_FLIGHT_FOR_LIMIT_DATE = "No es posible eliminar este vuelo porque está programado dentro del rango de un año.";
     private static final int LIMIT_IN_YEAR_FOR_DELETE = 1;
 
     private final FlightRepository flightRepository;

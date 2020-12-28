@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class GetFlightService {
 
-    private static final String THE_FLIGHT_DOESNOT_EXIST = "The flight does not exist";
+    private static final String THE_FLIGHT_DOESNOT_EXIST = "El vuelo consultado no existe.";
 
     private final FlightRepository flightRepository;
     private final ValidateExistence validateExistence;
