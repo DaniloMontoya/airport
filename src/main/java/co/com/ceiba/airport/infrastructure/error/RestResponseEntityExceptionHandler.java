@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
-    private static final Logger LOGGER_EXCEPTION = LoggerFactory.getLogger(RestResponseEntityExceptionHandler.class);
+    private static final Logger LOGEXCEPTION = LoggerFactory.getLogger(RestResponseEntityExceptionHandler.class);
 
     private static final String OCURRIO_UN_ERROR_FAVOR_CONTACTAR_AL_ADMINISTRADOR = "Ocurrió un error, favor contactar al administrador.";
 
@@ -38,7 +38,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
             Error error = new Error(excepcionNombre, mensaje);
             resultado = new ResponseEntity<>(error, HttpStatus.valueOf(codigo));
         } else {
-            LOGGER_EXCEPTION.error(excepcionNombre, exception);
+            LOGEXCEPTION.error(excepcionNombre, exception);
             Error error = new Error(excepcionNombre, OCURRIO_UN_ERROR_FAVOR_CONTACTAR_AL_ADMINISTRADOR);
             resultado = new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
         }
