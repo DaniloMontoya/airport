@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 
 import static org.mockito.Mockito.mock;
 
+
 class RestResponseEntityExceptionHandlerTest {
 
     @Test
